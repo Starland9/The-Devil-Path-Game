@@ -8,9 +8,25 @@ extends CanvasLayer
 @onready var name_label: Label   = $TopBar/NameLabel
 @onready var overlay: ColorRect  = $DeathOverlay
 @onready var overlay_timer: Timer = $DeathOverlay/Timer
+@onready var mobile_controls: Control = $MobileControls
 
 func _ready() -> void:
 	overlay.visible = false
+	_setup_mobile_controls()
+
+func _exit_tree() -> void:
+	_release_mobile_actions()
+
+func _setup_mobile_controls() -> void:
+	var is_mobile: bool = OS.get_name() in ["Android", "iOS"]
+	mobile_controls.visible = is_mobile
+
+func _release_mobile_actions() -> void:
+	Input.action_release("move_left")
+	Input.action_release("move_right")
+	Input.action_release("jump")
+	Input.action_release("dash")
+	Input.action_release("sprint")
 
 func update_deaths(count: int) -> void:
 	deaths_label.text = "☠ %d" % count
