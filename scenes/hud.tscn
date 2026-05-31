@@ -27,7 +27,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 12.0
 offset_top = 10.0
-offset_right = 1268.0
+offset_right = 1168.0
 offset_bottom = 48.0
 grow_horizontal = 2
 size_flags_horizontal = 3
@@ -58,6 +58,20 @@ mouse_filter = 2
 [node name="Timer" type="Timer" parent="DeathOverlay"]
 one_shot = true
 wait_time = 0.45
+
+[node name="SkipButton" type="Button" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -88.0
+offset_top = 10.0
+offset_right = -12.0
+offset_bottom = 40.0
+grow_horizontal = 0
+text = "SKIP"
+theme_override_font_sizes/font_size = 12
+modulate = Color(1, 0.65, 0.2, 0.9)
 
 [node name="MobileControls" type="Control" parent="."]
 visible = false
@@ -162,3 +176,4 @@ action = "sprint"
 shape = SubResource("Rect_ts_sprint")
 
 [connection signal="timeout" from="DeathOverlay/Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="SkipButton" to="." method="_on_skip_button_pressed"]

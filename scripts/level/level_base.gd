@@ -25,6 +25,8 @@ func _ready() -> void:
 	_spawn_player()
 	exit_area.body_entered.connect(_on_exit_entered)
 	death_zone.body_entered.connect(_on_death_zone_entered)
+	if hud_layer != null and hud_layer.has_signal("skip_requested"):
+		hud_layer.connect("skip_requested", Callable(self, "_on_skip_requested"))
 	_hud_call("set_level_name", "LEVEL %02d" % level_id)
 	_hud_call("update_deaths", _death_count)
 
@@ -74,6 +76,14 @@ func _on_exit_entered(body: Node) -> void:
 func _on_death_zone_entered(body: Node) -> void:
 	if body == _player:
 		_player.kill()
+
+func _on_skip_requested() -> void:
+	if not _active:
+		return
+	_active = false
+	_gs.save_level_result(level_id, _death_count, _timer)
+	_unlock_ability_if_needed()
+	_go_to_next()
 
 func _go_to_next() -> void:
 	if next_level_scene != "":

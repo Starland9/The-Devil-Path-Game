@@ -1,4 +1,5 @@
 extends CanvasLayer
+signal skip_requested
 
 # HUD in-level: deaths counter (top-left), timer (top-right), level name (top-center)
 # Driven by LevelBase._hud_call()
@@ -45,3 +46,6 @@ func flash_death() -> void:
 
 func _on_timer_timeout() -> void:
 	overlay.visible = false
+
+func _on_skip_button_pressed() -> void:
+	emit_signal("skip_requested")
