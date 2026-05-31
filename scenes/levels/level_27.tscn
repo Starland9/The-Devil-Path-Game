@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://b1level27"]
+
+[ext_resource type="Script" path="res://scripts/level/level_base.gd" id="1_base"]
+[ext_resource type="Script" path="res://scripts/level/components/patrol_spike.gd" id="2_ps"]
+[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="3_hud"]
+
+[sub_resource type="RectangleShape2D" id="Rect_floor"]
+size = Vector2(1280, 40)
+
+[sub_resource type="RectangleShape2D" id="Rect_plat"]
+size = Vector2(240, 28)
+
+[sub_resource type="RectangleShape2D" id="Rect_spike"]
+size = Vector2(24, 40)
+
+[sub_resource type="RectangleShape2D" id="Rect_exit"]
+size = Vector2(40, 64)
+
+[sub_resource type="RectangleShape2D" id="Rect_death"]
+size = Vector2(2000, 40)
+
+[node name="Level27" type="Node2D"]
+script = ExtResource("1_base")
+level_id = 27
+next_level_scene = "res://scenes/levels/level_28.tscn"
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(120, 540)
+
+[node name="HUD" parent="." instance=ExtResource("3_hud")]
+
+[node name="Exit" type="Area2D" parent="."]
+position = Vector2(1160, 395)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+shape = SubResource("Rect_exit")
+
+[node name="ExitVisual" type="ColorRect" parent="Exit"]
+offset_left = -20.0
+offset_top = -64.0
+offset_right = 20.0
+offset_bottom = 0.0
+color = Color(0.1, 0.9, 0.3, 1)
+
+[node name="DeathZone" type="Area2D" parent="."]
+position = Vector2(640, 760)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
+shape = SubResource("Rect_death")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(640, 580)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("Rect_floor")
+
+[node name="Visual" type="ColorRect" parent="Floor"]
+offset_left = -640.0
+offset_top = -20.0
+offset_right = 640.0
+offset_bottom = 20.0
+color = Color(0.25, 0.25, 0.28, 1)
+
+[node name="Platform1" type="StaticBody2D" parent="."]
+position = Vector2(800, 470)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1"]
+shape = SubResource("Rect_plat")
+
+[node name="Visual" type="ColorRect" parent="Platform1"]
+offset_left = -120.0
+offset_top = -14.0
+offset_right = 120.0
+offset_bottom = 14.0
+color = Color(0.25, 0.25, 0.28, 1)
+
+[node name="Platform2" type="StaticBody2D" parent="."]
+position = Vector2(1140, 440)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
+shape = SubResource("Rect_plat")
+
+[node name="Visual" type="ColorRect" parent="Platform2"]
+offset_left = -120.0
+offset_top = -14.0
+offset_right = 120.0
+offset_bottom = 14.0
+color = Color(0.25, 0.25, 0.28, 1)
+
+[node name="Spike1" type="Node2D" parent="."]
+position = Vector2(360, 560)
+script = ExtResource("2_ps")
+patrol_range = 180.0
+speed = 130.0
+
+[node name="Visual" type="ColorRect" parent="Spike1"]
+offset_left = -12.0
+offset_top = -40.0
+offset_right = 12.0
+offset_bottom = 0.0
+color = Color(0.85, 0.1, 0.1, 1)
+
+[node name="KillArea" type="Area2D" parent="Spike1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike1/KillArea"]
+shape = SubResource("Rect_spike")
+
+[node name="Spike2" type="Node2D" parent="."]
+position = Vector2(700, 560)
+script = ExtResource("2_ps")
+patrol_range = 160.0
+speed = 160.0
+
+[node name="Visual" type="ColorRect" parent="Spike2"]
+offset_left = -12.0
+offset_top = -40.0
+offset_right = 12.0
+offset_bottom = 0.0
+color = Color(0.85, 0.1, 0.1, 1)
+
+[node name="KillArea" type="Area2D" parent="Spike2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike2/KillArea"]
+shape = SubResource("Rect_spike")
+
+[node name="Spike3" type="Node2D" parent="."]
+position = Vector2(900, 480)
+script = ExtResource("2_ps")
+patrol_range = 120.0
+speed = 145.0
+
+[node name="Visual" type="ColorRect" parent="Spike3"]
+offset_left = -12.0
+offset_top = -40.0
+offset_right = 12.0
+offset_bottom = 0.0
+color = Color(0.85, 0.1, 0.1, 1)
+
+[node name="KillArea" type="Area2D" parent="Spike3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike3/KillArea"]
+shape = SubResource("Rect_spike")

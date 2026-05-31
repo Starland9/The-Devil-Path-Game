@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://b1intro"]
+
+[ext_resource type="Script" uid="uid://co5dokjpnguh" path="res://scripts/ui/intro_ui.gd" id="1_intro"]
+
+[node name="Intro" type="CanvasLayer" unique_id=11638302]
+script = ExtResource("1_intro")
+
+[node name="Root" type="Control" parent="." unique_id=1844346798]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="Root" unique_id=1969059505]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.05, 0.03, 0.03, 1)
+
+[node name="TitleArea" type="VBoxContainer" parent="Root" unique_id=608643326]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -180.0
+offset_right = 200.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="Root/TitleArea" unique_id=817122434]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.1, 0.1, 1)
+theme_override_font_sizes/font_size = 52
+text = "THE DEVIL PATH"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Root/TitleArea" unique_id=1853906863]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_font_sizes/font_size = 18
+text = "100 LEVELS OF PAIN"
+horizontal_alignment = 1
+
+[node name="Center" type="CenterContainer" parent="Root" unique_id=1374700732]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 222.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Root/Center" unique_id=475097748]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="Root/Center/VBox" unique_id=415285869]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+text = "PLAY"
+
+[node name="SettingsButton" type="Button" parent="Root/Center/VBox" unique_id=1441005382]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "SETTINGS"
+
+[node name="QuitButton" type="Button" parent="Root/Center/VBox" unique_id=1942579213]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "QUIT"

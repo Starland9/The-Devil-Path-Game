@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://b1level24"]
+
+[ext_resource type="Script" path="res://scripts/level/level_base.gd" id="1_base"]
+[ext_resource type="Script" path="res://scripts/level/components/lava_spawner.gd" id="2_ls"]
+[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="3_hud"]
+
+[sub_resource type="RectangleShape2D" id="Rect_plat"]
+size = Vector2(160, 28)
+
+[sub_resource type="RectangleShape2D" id="Rect_exit"]
+size = Vector2(40, 64)
+
+[sub_resource type="RectangleShape2D" id="Rect_death"]
+size = Vector2(2000, 40)
+
+[node name="Level24" type="Node2D"]
+script = ExtResource("1_base")
+level_id = 24
+next_level_scene = "res://scenes/levels/level_25.tscn"
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(120, 400)
+
+[node name="HUD" parent="." instance=ExtResource("3_hud")]
+
+[node name="LavaSpawner" type="Node" parent="."]
+script = ExtResource("2_ls")
+idle_time = 1.5
+
+[node name="Exit" type="Area2D" parent="."]
+position = Vector2(1140, 220)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+shape = SubResource("Rect_exit")
+
+[node name="ExitVisual" type="ColorRect" parent="Exit"]
+offset_left = -20.0
+offset_top = -64.0
+offset_right = 20.0
+offset_bottom = 0.0
+color = Color(0.1, 0.9, 0.3, 1)
+
+[node name="DeathZone" type="Area2D" parent="."]
+position = Vector2(640, 760)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
+shape = SubResource("Rect_death")
+
+[node name="Plat1" type="StaticBody2D" parent="."]
+position = Vector2(120, 440)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plat1"]
+shape = SubResource("Rect_plat")
+
+[node name="Visual" type="ColorRect" parent="Plat1"]
+offset_left = -80.0
+offset_top = -14.0
+offset_right = 80.0
+offset_bottom = 14.0
+color = Color(0.25, 0.25, 0.28, 1)
+
+[node name="Plat2" type="StaticBody2D" parent="."]
+position = Vector2(370, 390)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plat2"]
+shape = SubResource("Rect_plat")
+
+[node name="Visual" type="ColorRect" parent="Plat2"]
+offset_left = -80.0
+offset_top = -14.0
+offset_right = 80.0
+offset_bottom = 14.0
+color = Color(0.25, 0.25, 0.28, 1)
+
+[node name="Plat3" type="StaticBody2D" parent="."]
+position = Vector2(620, 340)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plat3"]
+shape = SubResource("Rect_plat")
+
+[node name="Visual" type="ColorRect" parent="Plat3"]
+offset_left = -80.0
+offset_top = -14.0
+offset_right = 80.0
+offset_bottom = 14.0
+color = Color(0.25, 0.25, 0.28, 1)
+
+[node name="Plat4" type="StaticBody2D" parent="."]
+position = Vector2(870, 290)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plat4"]
+shape = SubResource("Rect_plat")
+
+[node name="Visual" type="ColorRect" parent="Plat4"]
+offset_left = -80.0
+offset_top = -14.0
+offset_right = 80.0
+offset_bottom = 14.0
+color = Color(0.25, 0.25, 0.28, 1)
+
+[node name="Plat5" type="StaticBody2D" parent="."]
+position = Vector2(1140, 250)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plat5"]
+shape = SubResource("Rect_plat")
+
+[node name="Visual" type="ColorRect" parent="Plat5"]
+offset_left = -80.0
+offset_top = -14.0
+offset_right = 80.0
+offset_bottom = 14.0
+color = Color(0.25, 0.25, 0.28, 1)
+
+[node name="Warning" type="Label" parent="."]
+position = Vector2(510, 140)
+text = "KEEP MOVING"
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.9, 0.35, 0.05, 0.6)

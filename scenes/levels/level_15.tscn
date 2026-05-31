@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://b1level15"]
+
+[ext_resource type="Script" path="res://scripts/level/level_base.gd" id="1_base"]
+[ext_resource type="Script" path="res://scripts/level/components/exit_spike_trap.gd" id="2_est"]
+[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="3_hud"]
+
+[sub_resource type="RectangleShape2D" id="Rect_floor"]
+size = Vector2(1280, 40)
+
+[sub_resource type="RectangleShape2D" id="Rect_plat"]
+size = Vector2(120, 24)
+
+[sub_resource type="RectangleShape2D" id="Rect_fake_exit"]
+size = Vector2(44, 68)
+
+[sub_resource type="RectangleShape2D" id="Rect_exit"]
+size = Vector2(40, 64)
+
+[sub_resource type="RectangleShape2D" id="Rect_death"]
+size = Vector2(2000, 40)
+
+[node name="Level15" type="Node2D"]
+script = ExtResource("1_base")
+level_id = 15
+next_level_scene = "res://scenes/levels/level_16.tscn"
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(640, 530)
+
+[node name="HUD" parent="." instance=ExtResource("3_hud")]
+
+[node name="Exit" type="Area2D" parent="."]
+position = Vector2(560, 245)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+shape = SubResource("Rect_exit")
+
+[node name="ExitVisual" type="ColorRect" parent="Exit"]
+offset_left = -20.0
+offset_top = -64.0
+offset_right = 20.0
+offset_bottom = 0.0
+color = Color(0.1, 0.9, 0.3, 0.3)
+
+[node name="FakeExitLeft" type="Area2D" parent="."]
+position = Vector2(160, 520)
+script = ExtResource("2_est")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FakeExitLeft"]
+shape = SubResource("Rect_fake_exit")
+
+[node name="Visual" type="ColorRect" parent="FakeExitLeft"]
+offset_left = -22.0
+offset_top = -68.0
+offset_right = 22.0
+offset_bottom = 0.0
+color = Color(0.1, 0.9, 0.3, 1)
+
+[node name="FakeExitRight" type="Area2D" parent="."]
+position = Vector2(1120, 520)
+script = ExtResource("2_est")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FakeExitRight"]
+shape = SubResource("Rect_fake_exit")
+
+[node name="Visual" type="ColorRect" parent="FakeExitRight"]
+offset_left = -22.0
+offset_top = -68.0
+offset_right = 22.0
+offset_bottom = 0.0
+color = Color(0.1, 0.9, 0.3, 1)
+
+[node name="DeathZone" type="Area2D" parent="."]
+position = Vector2(640, 760)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
+shape = SubResource("Rect_death")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(640, 580)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("Rect_floor")
+
+[node name="Visual" type="ColorRect" parent="Floor"]
+offset_left = -640.0
+offset_top = -20.0
+offset_right = 640.0
+offset_bottom = 20.0
+color = Color(0.25, 0.25, 0.28, 1)
+
+[node name="PlatA" type="StaticBody2D" parent="."]
+position = Vector2(540, 490)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatA"]
+shape = SubResource("Rect_plat")
+
+[node name="Visual" type="ColorRect" parent="PlatA"]
+offset_left = -60.0
+offset_top = -12.0
+offset_right = 60.0
+offset_bottom = 12.0
+color = Color(0.25, 0.25, 0.28, 1)
+
+[node name="PlatB" type="StaticBody2D" parent="."]
+position = Vector2(700, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatB"]
+shape = SubResource("Rect_plat")
+
+[node name="Visual" type="ColorRect" parent="PlatB"]
+offset_left = -60.0
+offset_top = -12.0
+offset_right = 60.0
+offset_bottom = 12.0
+color = Color(0.25, 0.25, 0.28, 1)
+
+[node name="PlatC" type="StaticBody2D" parent="."]
+position = Vector2(540, 310)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatC"]
+shape = SubResource("Rect_plat")
+
+[node name="Visual" type="ColorRect" parent="PlatC"]
+offset_left = -60.0
+offset_top = -12.0
+offset_right = 60.0
+offset_bottom = 12.0
+color = Color(0.25, 0.25, 0.28, 1)

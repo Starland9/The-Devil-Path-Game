@@ -1,0 +1,244 @@
+[gd_scene format=3 uid="uid://b1level04"]
+
+[ext_resource type="Script" path="res://scripts/level/level_base.gd" id="1_base"]
+[ext_resource type="Script" path="res://scripts/level/components/collapsing_floor.gd" id="2_cf"]
+[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="3_hud"]
+
+[sub_resource type="RectangleShape2D" id="Rect_border_l"]
+size = Vector2(120, 40)
+
+[sub_resource type="RectangleShape2D" id="Rect_border_r"]
+size = Vector2(120, 40)
+
+[sub_resource type="RectangleShape2D" id="Rect_tile"]
+size = Vector2(80, 28)
+
+[sub_resource type="RectangleShape2D" id="Rect_trigger"]
+size = Vector2(80, 8)
+
+[sub_resource type="RectangleShape2D" id="Rect_exit"]
+size = Vector2(40, 64)
+
+[sub_resource type="RectangleShape2D" id="Rect_death"]
+size = Vector2(2000, 40)
+
+[node name="Level04" type="Node2D"]
+script = ExtResource("1_base")
+level_id = 4
+next_level_scene = "res://scenes/levels/level_05.tscn"
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(80, 520)
+
+[node name="HUD" parent="." instance=ExtResource("3_hud")]
+
+[node name="Exit" type="Area2D" parent="."]
+position = Vector2(1200, 520)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+shape = SubResource("Rect_exit")
+
+[node name="ExitVisual" type="ColorRect" parent="Exit"]
+offset_left = -20.0
+offset_top = -64.0
+offset_right = 20.0
+offset_bottom = 0.0
+color = Color(0.1, 0.9, 0.3, 1)
+
+[node name="DeathZone" type="Area2D" parent="."]
+position = Vector2(640, 740)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
+shape = SubResource("Rect_death")
+
+[node name="BorderLeft" type="StaticBody2D" parent="."]
+position = Vector2(60, 564)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderLeft"]
+shape = SubResource("Rect_border_l")
+
+[node name="Visual" type="ColorRect" parent="BorderLeft"]
+offset_left = -60.0
+offset_top = -20.0
+offset_right = 60.0
+offset_bottom = 20.0
+color = Color(0.25, 0.25, 0.28, 1)
+
+[node name="BorderRight" type="StaticBody2D" parent="."]
+position = Vector2(1220, 564)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderRight"]
+shape = SubResource("Rect_border_r")
+
+[node name="Visual" type="ColorRect" parent="BorderRight"]
+offset_left = -60.0
+offset_top = -20.0
+offset_right = 60.0
+offset_bottom = 20.0
+color = Color(0.25, 0.25, 0.28, 1)
+
+[node name="Tile1" type="StaticBody2D" parent="."]
+position = Vector2(200, 564)
+script = ExtResource("2_cf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile1"]
+shape = SubResource("Rect_tile")
+
+[node name="Visual" type="ColorRect" parent="Tile1"]
+offset_left = -40.0
+offset_top = -14.0
+offset_right = 40.0
+offset_bottom = 14.0
+color = Color(0.4, 0.38, 0.42, 1)
+
+[node name="TriggerArea" type="Area2D" parent="Tile1"]
+position = Vector2(0, -14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile1/TriggerArea"]
+shape = SubResource("Rect_trigger")
+
+[node name="Tile2" type="StaticBody2D" parent="."]
+position = Vector2(320, 564)
+script = ExtResource("2_cf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile2"]
+shape = SubResource("Rect_tile")
+
+[node name="Visual" type="ColorRect" parent="Tile2"]
+offset_left = -40.0
+offset_top = -14.0
+offset_right = 40.0
+offset_bottom = 14.0
+color = Color(0.4, 0.38, 0.42, 1)
+
+[node name="TriggerArea" type="Area2D" parent="Tile2"]
+position = Vector2(0, -14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile2/TriggerArea"]
+shape = SubResource("Rect_trigger")
+
+[node name="Tile3" type="StaticBody2D" parent="."]
+position = Vector2(440, 564)
+script = ExtResource("2_cf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile3"]
+shape = SubResource("Rect_tile")
+
+[node name="Visual" type="ColorRect" parent="Tile3"]
+offset_left = -40.0
+offset_top = -14.0
+offset_right = 40.0
+offset_bottom = 14.0
+color = Color(0.4, 0.38, 0.42, 1)
+
+[node name="TriggerArea" type="Area2D" parent="Tile3"]
+position = Vector2(0, -14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile3/TriggerArea"]
+shape = SubResource("Rect_trigger")
+
+[node name="Tile4" type="StaticBody2D" parent="."]
+position = Vector2(560, 564)
+script = ExtResource("2_cf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile4"]
+shape = SubResource("Rect_tile")
+
+[node name="Visual" type="ColorRect" parent="Tile4"]
+offset_left = -40.0
+offset_top = -14.0
+offset_right = 40.0
+offset_bottom = 14.0
+color = Color(0.4, 0.38, 0.42, 1)
+
+[node name="TriggerArea" type="Area2D" parent="Tile4"]
+position = Vector2(0, -14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile4/TriggerArea"]
+shape = SubResource("Rect_trigger")
+
+[node name="Tile5" type="StaticBody2D" parent="."]
+position = Vector2(680, 564)
+script = ExtResource("2_cf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile5"]
+shape = SubResource("Rect_tile")
+
+[node name="Visual" type="ColorRect" parent="Tile5"]
+offset_left = -40.0
+offset_top = -14.0
+offset_right = 40.0
+offset_bottom = 14.0
+color = Color(0.4, 0.38, 0.42, 1)
+
+[node name="TriggerArea" type="Area2D" parent="Tile5"]
+position = Vector2(0, -14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile5/TriggerArea"]
+shape = SubResource("Rect_trigger")
+
+[node name="Tile6" type="StaticBody2D" parent="."]
+position = Vector2(800, 564)
+script = ExtResource("2_cf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile6"]
+shape = SubResource("Rect_tile")
+
+[node name="Visual" type="ColorRect" parent="Tile6"]
+offset_left = -40.0
+offset_top = -14.0
+offset_right = 40.0
+offset_bottom = 14.0
+color = Color(0.4, 0.38, 0.42, 1)
+
+[node name="TriggerArea" type="Area2D" parent="Tile6"]
+position = Vector2(0, -14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile6/TriggerArea"]
+shape = SubResource("Rect_trigger")
+
+[node name="Tile7" type="StaticBody2D" parent="."]
+position = Vector2(920, 564)
+script = ExtResource("2_cf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile7"]
+shape = SubResource("Rect_tile")
+
+[node name="Visual" type="ColorRect" parent="Tile7"]
+offset_left = -40.0
+offset_top = -14.0
+offset_right = 40.0
+offset_bottom = 14.0
+color = Color(0.4, 0.38, 0.42, 1)
+
+[node name="TriggerArea" type="Area2D" parent="Tile7"]
+position = Vector2(0, -14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile7/TriggerArea"]
+shape = SubResource("Rect_trigger")
+
+[node name="Tile8" type="StaticBody2D" parent="."]
+position = Vector2(1040, 564)
+script = ExtResource("2_cf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile8"]
+shape = SubResource("Rect_tile")
+
+[node name="Visual" type="ColorRect" parent="Tile8"]
+offset_left = -40.0
+offset_top = -14.0
+offset_right = 40.0
+offset_bottom = 14.0
+color = Color(0.4, 0.38, 0.42, 1)
+
+[node name="TriggerArea" type="Area2D" parent="Tile8"]
+position = Vector2(0, -14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile8/TriggerArea"]
+shape = SubResource("Rect_trigger")
+
+[node name="LevelTitle" type="Label" parent="."]
+position = Vector2(40, 40)
+text = "FALSE FLOOR"
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 0.4)

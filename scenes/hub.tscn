@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1hub"]
+
+[ext_resource type="Script" path="res://scripts/ui/hub_ui.gd" id="1_hub"]
+
+[node name="Hub" type="CanvasLayer"]
+script = ExtResource("1_hub")
+
+[node name="Root" type="Control" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="Root"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.05, 0.03, 0.03, 1)
+
+[node name="TitleLabel" type="Label" parent="Root"]
+anchors_preset = 1
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 24.0
+offset_right = 1280.0
+offset_bottom = 72.0
+text = "SELECT LEVEL"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 32
+theme_override_colors/font_color = Color(0.9, 0.1, 0.1, 1)
+
+[node name="Scroll" type="ScrollContainer" parent="Root"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 88.0
+offset_right = -32.0
+offset_bottom = -80.0
+
+[node name="Grid" type="GridContainer" parent="Root/Scroll"]
+columns = 10
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+
+[node name="BackButton" type="Button" parent="Root"]
+anchors_preset = 3
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -64.0
+offset_right = 180.0
+offset_bottom = -16.0
+text = "← MENU"

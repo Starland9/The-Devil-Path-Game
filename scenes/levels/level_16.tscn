@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://b1level16"]
+
+[ext_resource type="Script" path="res://scripts/level/level_base.gd" id="1_base"]
+[ext_resource type="Script" path="res://scripts/level/components/timed_platform.gd" id="2_tp"]
+[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="3_hud"]
+
+[sub_resource type="RectangleShape2D" id="Rect_half_floor"]
+size = Vector2(480, 40)
+
+[sub_resource type="RectangleShape2D" id="Rect_timed"]
+size = Vector2(100, 24)
+
+[sub_resource type="RectangleShape2D" id="Rect_exit"]
+size = Vector2(40, 64)
+
+[sub_resource type="RectangleShape2D" id="Rect_death"]
+size = Vector2(2000, 40)
+
+[node name="Level16" type="Node2D"]
+script = ExtResource("1_base")
+level_id = 16
+next_level_scene = "res://scenes/levels/level_17.tscn"
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(200, 540)
+
+[node name="HUD" parent="." instance=ExtResource("3_hud")]
+
+[node name="Exit" type="Area2D" parent="."]
+position = Vector2(1080, 540)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+shape = SubResource("Rect_exit")
+
+[node name="ExitVisual" type="ColorRect" parent="Exit"]
+offset_left = -20.0
+offset_top = -64.0
+offset_right = 20.0
+offset_bottom = 0.0
+color = Color(0.1, 0.9, 0.3, 1)
+
+[node name="DeathZone" type="Area2D" parent="."]
+position = Vector2(640, 760)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
+shape = SubResource("Rect_death")
+
+[node name="GroundLeft" type="StaticBody2D" parent="."]
+position = Vector2(240, 580)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundLeft"]
+shape = SubResource("Rect_half_floor")
+
+[node name="Visual" type="ColorRect" parent="GroundLeft"]
+offset_left = -240.0
+offset_top = -20.0
+offset_right = 240.0
+offset_bottom = 20.0
+color = Color(0.25, 0.25, 0.28, 1)
+
+[node name="GroundRight" type="StaticBody2D" parent="."]
+position = Vector2(1040, 580)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundRight"]
+shape = SubResource("Rect_half_floor")
+
+[node name="Visual" type="ColorRect" parent="GroundRight"]
+offset_left = -240.0
+offset_top = -20.0
+offset_right = 240.0
+offset_bottom = 20.0
+color = Color(0.25, 0.25, 0.28, 1)
+
+[node name="TimedBridge" type="StaticBody2D" parent="."]
+position = Vector2(640, 520)
+script = ExtResource("2_tp")
+visible_duration = 1.0
+hidden_duration = 4.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TimedBridge"]
+shape = SubResource("Rect_timed")
+
+[node name="Visual" type="ColorRect" parent="TimedBridge"]
+offset_left = -50.0
+offset_top = -12.0
+offset_right = 50.0
+offset_bottom = 12.0
+color = Color(0.3, 0.7, 0.9, 1)

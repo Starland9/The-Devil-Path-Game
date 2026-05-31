@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://d1wn8um02ukg"]
+
+[ext_resource type="Script" uid="uid://b5448x1onumxn" path="res://scripts/level/level_base.gd" id="1_base"]
+[ext_resource type="Script" uid="uid://xft075xgifha" path="res://scripts/level/components/jump_punisher.gd" id="2_jp"]
+[ext_resource type="PackedScene" uid="uid://b1hud" path="res://scenes/hud.tscn" id="3_hud"]
+
+[sub_resource type="RectangleShape2D" id="Rect_exit"]
+size = Vector2(40, 64)
+
+[sub_resource type="RectangleShape2D" id="Rect_death"]
+size = Vector2(2000, 40)
+
+[sub_resource type="RectangleShape2D" id="Rect_floor_left"]
+size = Vector2(280, 40)
+
+[sub_resource type="RectangleShape2D" id="Rect_floor_right"]
+size = Vector2(280, 40)
+
+[sub_resource type="RectangleShape2D" id="Rect_plat"]
+size = Vector2(200, 28)
+
+[node name="Level23" type="Node2D" unique_id=34161376]
+script = ExtResource("1_base")
+level_id = 23
+next_level_scene = "res://scenes/levels/level_24.tscn"
+
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=757398628]
+position = Vector2(140, 540)
+
+[node name="HUD" parent="." unique_id=2064522749 instance=ExtResource("3_hud")]
+
+[node name="JumpPunisher" type="Node" parent="." unique_id=190786914]
+script = ExtResource("2_jp")
+max_jumps = 5
+
+[node name="Exit" type="Area2D" parent="." unique_id=1448061062]
+position = Vector2(1140, 380)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit" unique_id=1973942133]
+shape = SubResource("Rect_exit")
+
+[node name="ExitVisual" type="ColorRect" parent="Exit" unique_id=1766774652]
+offset_left = -20.0
+offset_top = -64.0
+offset_right = 20.0
+color = Color(0.1, 0.9, 0.3, 1)
+
+[node name="DeathZone" type="Area2D" parent="." unique_id=787101097]
+position = Vector2(640, 760)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone" unique_id=204643357]
+shape = SubResource("Rect_death")
+
+[node name="GroundLeft" type="StaticBody2D" parent="." unique_id=1823159273]
+position = Vector2(140, 580)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundLeft" unique_id=669122398]
+shape = SubResource("Rect_floor_left")
+
+[node name="Visual" type="ColorRect" parent="GroundLeft" unique_id=874385811]
+offset_left = -140.0
+offset_top = -20.0
+offset_right = 140.0
+offset_bottom = 20.0
+color = Color(0.25, 0.25, 0.28, 1)
+
+[node name="GroundRight" type="StaticBody2D" parent="." unique_id=1766904526]
+position = Vector2(1140, 580)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundRight" unique_id=1381881125]
+shape = SubResource("Rect_floor_right")
+
+[node name="Visual" type="ColorRect" parent="GroundRight" unique_id=402500764]
+offset_left = -140.0
+offset_top = -20.0
+offset_right = 140.0
+offset_bottom = 20.0
+color = Color(0.25, 0.25, 0.28, 1)
+
+[node name="PlatformMid" type="StaticBody2D" parent="." unique_id=2109348985]
+position = Vector2(640, 480)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformMid" unique_id=2035138594]
+shape = SubResource("Rect_plat")
+
+[node name="Visual" type="ColorRect" parent="PlatformMid" unique_id=1887624369]
+offset_left = -100.0
+offset_top = -14.0
+offset_right = 100.0
+offset_bottom = 14.0
+color = Color(0.25, 0.25, 0.28, 1)
+
+[node name="PlatformRight" type="StaticBody2D" parent="." unique_id=982793786]
+position = Vector2(1140, 450)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformRight" unique_id=798874905]
+shape = SubResource("Rect_plat")
+
+[node name="Visual" type="ColorRect" parent="PlatformRight" unique_id=931968262]
+offset_left = -100.0
+offset_top = -14.0
+offset_right = 100.0
+offset_bottom = 14.0
+color = Color(0.25, 0.25, 0.28, 1)
+
+[node name="Warning" type="Label" parent="." unique_id=912736248]
+offset_left = 490.0
+offset_top = 420.0
+offset_right = 490.0
+offset_bottom = 420.0
+theme_override_colors/font_color = Color(0.9, 0.2, 0.2, 0.5)
+theme_override_font_sizes/font_size = 14
+text = "5RD JUMP = DEATH"

@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1hud"]
+
+[ext_resource type="Script" path="res://scripts/ui/hud.gd" id="1_hud"]
+
+[node name="HUD" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_hud")
+
+[node name="TopBar" type="HBoxContainer" parent="."]
+anchors_preset = 1
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 1268.0
+offset_bottom = 48.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+
+[node name="DeathsLabel" type="Label" parent="TopBar"]
+text = "☠ 0"
+horizontal_alignment = 0
+size_flags_horizontal = 3
+
+[node name="NameLabel" type="Label" parent="TopBar"]
+text = "LEVEL 01"
+horizontal_alignment = 1
+size_flags_horizontal = 3
+
+[node name="TimerLabel" type="Label" parent="TopBar"]
+text = "00:00.00"
+horizontal_alignment = 2
+size_flags_horizontal = 3
+
+[node name="DeathOverlay" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.8, 0.1, 0.1, 0.35)
+visible = false
+mouse_filter = 2
+
+[node name="Timer" type="Timer" parent="DeathOverlay"]
+one_shot = true
+wait_time = 0.45
+
+[connection signal="timeout" from="DeathOverlay/Timer" to="." method="_on_timer_timeout"]
