@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://b5448x1onumxn" path="res://scripts/level/level_base.gd" id="1_base"]
 [ext_resource type="Script" uid="uid://dikvgj36jx6x4" path="res://scripts/level/components/exit_spike_trap.gd" id="2_est"]
-[ext_resource type="PackedScene" uid="uid://b1hud" path="res://scenes/hud.tscn" id="3_hud"]
 [ext_resource type="PackedScene" uid="uid://cjffm3nbdsdcs" path="res://scenes/prefabs/exit/exit.tscn" id="3_j2blp"]
 
 [sub_resource type="RectangleShape2D" id="Rect_fake_exit"]
@@ -28,8 +27,6 @@ position = Vector2(200, 500)
 
 [node name="Exit" parent="." unique_id=2023957119 instance=ExtResource("3_j2blp")]
 position = Vector2(204, 229)
-
-[node name="HUD" parent="." unique_id=904796192 instance=ExtResource("3_hud")]
 
 [node name="FakeExit" type="Area2D" parent="." unique_id=513951910]
 position = Vector2(1067, 508)

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b1level28"]
 
-[ext_resource type="Script" path="res://scripts/level/level_base.gd" id="1_base"]
-[ext_resource type="Script" path="res://scripts/level/components/vanishing_ladder.gd" id="2_vl"]
-[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="3_hud"]
+[ext_resource type="Script" uid="uid://b5448x1onumxn" path="res://scripts/level/level_base.gd" id="1_base"]
+[ext_resource type="Script" uid="uid://em7en0jf53d3" path="res://scripts/level/components/vanishing_ladder.gd" id="2_vl"]
+[ext_resource type="PackedScene" uid="uid://cjffm3nbdsdcs" path="res://scenes/prefabs/exit/exit.tscn" id="3_35pcp"]
 
 [sub_resource type="RectangleShape2D" id="Rect_floor_left"]
 size = Vector2(280, 40)
@@ -13,144 +13,119 @@ size = Vector2(240, 40)
 [sub_resource type="RectangleShape2D" id="Rect_rung"]
 size = Vector2(120, 24)
 
-[sub_resource type="RectangleShape2D" id="Rect_exit"]
-size = Vector2(40, 64)
-
-[sub_resource type="RectangleShape2D" id="Rect_death"]
-size = Vector2(2000, 40)
-
-[node name="Level28" type="Node2D"]
+[node name="Level28" type="Node2D" unique_id=2103186815]
 script = ExtResource("1_base")
 level_id = 28
 next_level_scene = "res://scenes/levels/level_29.tscn"
+title = "Vanishing Ladder"
 
-[node name="SpawnPoint" type="Marker2D" parent="."]
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1954015407]
 position = Vector2(120, 540)
 
-[node name="HUD" parent="." instance=ExtResource("3_hud")]
+[node name="Exit" parent="." unique_id=2023957119 instance=ExtResource("3_35pcp")]
+position = Vector2(1197, 99)
 
-[node name="Exit" type="Area2D" parent="."]
-position = Vector2(1140, 85)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
-shape = SubResource("Rect_exit")
-
-[node name="ExitVisual" type="ColorRect" parent="Exit"]
-offset_left = -20.0
-offset_top = -64.0
-offset_right = 20.0
-offset_bottom = 0.0
-color = Color(0.1, 0.9, 0.3, 1)
-
-[node name="DeathZone" type="Area2D" parent="."]
-position = Vector2(640, 760)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
-shape = SubResource("Rect_death")
-
-[node name="GroundLeft" type="StaticBody2D" parent="."]
+[node name="GroundLeft" type="StaticBody2D" parent="." unique_id=370668542]
 position = Vector2(140, 580)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundLeft"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundLeft" unique_id=710730113]
 shape = SubResource("Rect_floor_left")
 
-[node name="Visual" type="ColorRect" parent="GroundLeft"]
+[node name="Visual" type="ColorRect" parent="GroundLeft" unique_id=1395281617]
 offset_left = -140.0
 offset_top = -20.0
 offset_right = 140.0
 offset_bottom = 20.0
 color = Color(0.25, 0.25, 0.28, 1)
 
-[node name="GroundRight" type="StaticBody2D" parent="."]
+[node name="GroundRight" type="StaticBody2D" parent="." unique_id=703138225]
 position = Vector2(1140, 580)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundRight"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundRight" unique_id=276444837]
 shape = SubResource("Rect_floor_right")
 
-[node name="Visual" type="ColorRect" parent="GroundRight"]
+[node name="Visual" type="ColorRect" parent="GroundRight" unique_id=1296107928]
 offset_left = -120.0
 offset_top = -20.0
 offset_right = 120.0
 offset_bottom = 20.0
 color = Color(0.25, 0.25, 0.28, 1)
 
-[node name="Ladder" type="Node2D" parent="."]
+[node name="Ladder" type="Node2D" parent="." unique_id=659719924]
 script = ExtResource("2_vl")
-start_delay = 3.5
-step_delay = 0.5
 
-[node name="Rung0" type="StaticBody2D" parent="Ladder"]
+[node name="Rung0" type="StaticBody2D" parent="Ladder" unique_id=1896416466]
 position = Vector2(360, 520)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder/Rung0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder/Rung0" unique_id=1942541515]
 shape = SubResource("Rect_rung")
 
-[node name="Visual" type="ColorRect" parent="Ladder/Rung0"]
+[node name="Visual" type="ColorRect" parent="Ladder/Rung0" unique_id=1770128307]
 offset_left = -60.0
 offset_top = -12.0
 offset_right = 60.0
 offset_bottom = 12.0
 color = Color(0.4, 0.4, 0.5, 1)
 
-[node name="Rung1" type="StaticBody2D" parent="Ladder"]
+[node name="Rung1" type="StaticBody2D" parent="Ladder" unique_id=310081472]
 position = Vector2(360, 430)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder/Rung1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder/Rung1" unique_id=2128204108]
 shape = SubResource("Rect_rung")
 
-[node name="Visual" type="ColorRect" parent="Ladder/Rung1"]
+[node name="Visual" type="ColorRect" parent="Ladder/Rung1" unique_id=1481988629]
 offset_left = -60.0
 offset_top = -12.0
 offset_right = 60.0
 offset_bottom = 12.0
 color = Color(0.4, 0.4, 0.5, 1)
 
-[node name="Rung2" type="StaticBody2D" parent="Ladder"]
+[node name="Rung2" type="StaticBody2D" parent="Ladder" unique_id=648159859]
 position = Vector2(360, 340)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder/Rung2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder/Rung2" unique_id=697301277]
 shape = SubResource("Rect_rung")
 
-[node name="Visual" type="ColorRect" parent="Ladder/Rung2"]
+[node name="Visual" type="ColorRect" parent="Ladder/Rung2" unique_id=125539441]
 offset_left = -60.0
 offset_top = -12.0
 offset_right = 60.0
 offset_bottom = 12.0
 color = Color(0.4, 0.4, 0.5, 1)
 
-[node name="Rung3" type="StaticBody2D" parent="Ladder"]
+[node name="Rung3" type="StaticBody2D" parent="Ladder" unique_id=1048574385]
 position = Vector2(360, 250)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder/Rung3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder/Rung3" unique_id=945156068]
 shape = SubResource("Rect_rung")
 
-[node name="Visual" type="ColorRect" parent="Ladder/Rung3"]
+[node name="Visual" type="ColorRect" parent="Ladder/Rung3" unique_id=1905477979]
 offset_left = -60.0
 offset_top = -12.0
 offset_right = 60.0
 offset_bottom = 12.0
 color = Color(0.4, 0.4, 0.5, 1)
 
-[node name="Rung4" type="StaticBody2D" parent="Ladder"]
+[node name="Rung4" type="StaticBody2D" parent="Ladder" unique_id=158872357]
 position = Vector2(360, 160)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder/Rung4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder/Rung4" unique_id=1544816686]
 shape = SubResource("Rect_rung")
 
-[node name="Visual" type="ColorRect" parent="Ladder/Rung4"]
+[node name="Visual" type="ColorRect" parent="Ladder/Rung4" unique_id=1305348268]
 offset_left = -60.0
 offset_top = -12.0
 offset_right = 60.0
 offset_bottom = 12.0
 color = Color(0.4, 0.4, 0.5, 1)
 
-[node name="TopBridge" type="StaticBody2D" parent="."]
+[node name="TopBridge" type="StaticBody2D" parent="." unique_id=1174829122]
 position = Vector2(760, 120)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TopBridge"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopBridge" unique_id=610502615]
 shape = SubResource("Rect_floor_right")
 
-[node name="Visual" type="ColorRect" parent="TopBridge"]
+[node name="Visual" type="ColorRect" parent="TopBridge" unique_id=1540866549]
 offset_left = -120.0
 offset_top = -20.0
 offset_right = 120.0

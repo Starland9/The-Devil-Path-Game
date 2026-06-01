@@ -4,8 +4,8 @@ class_name LavaSpawner
 # TROLL — Level 24: Floor Is Lava
 # Standing still for too long spawns a lava block that kills on contact.
 
-@export var idle_time: float = 1.5
-
+@export var idle_time: float = 0.3
+ 
 var _player: Node             = null
 var _idle_timer: float        = 0.0
 var _last_pos: Vector2        = Vector2.ZERO

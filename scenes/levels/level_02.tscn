@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://b5448x1onumxn" path="res://scripts/level/level_base.gd" id="1_base"]
 [ext_resource type="Script" uid="uid://de0e2eni0s8m3" path="res://scripts/level/components/disappearing_platform.gd" id="2_dp"]
-[ext_resource type="PackedScene" uid="uid://b1hud" path="res://scenes/hud.tscn" id="3_hud"]
 [ext_resource type="Script" uid="uid://70t8jbrblcmh" path="res://scripts/level/components/plateform_visual.gd" id="3_yjjx0"]
 [ext_resource type="PackedScene" uid="uid://cjffm3nbdsdcs" path="res://scenes/prefabs/exit/exit.tscn" id="4_3acmf"]
 
@@ -23,8 +22,6 @@ title = "TRUST ISSUES"
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=2111594306]
 position = Vector2(100, 500)
-
-[node name="HUD" parent="." unique_id=614303845 instance=ExtResource("3_hud")]
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=585052823]
 position = Vector2(200, 580)

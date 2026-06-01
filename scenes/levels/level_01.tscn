@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://b5448x1onumxn" path="res://scripts/level/level_base.gd" id="1_base"]
 [ext_resource type="Script" uid="uid://cass7ndqx3xaw" path="res://scripts/level/components/widening_pit.gd" id="2_pit"]
-[ext_resource type="PackedScene" uid="uid://b1hud" path="res://scenes/hud.tscn" id="3_hud"]
 [ext_resource type="PackedScene" uid="uid://cjffm3nbdsdcs" path="res://scenes/prefabs/exit/exit.tscn" id="3_uvc87"]
 [ext_resource type="Script" uid="uid://70t8jbrblcmh" path="res://scripts/level/components/plateform_visual.gd" id="5_50wog"]
 
@@ -28,8 +27,6 @@ title = "THE LIE"
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=1895282937]
 position = Vector2(120, 500)
-
-[node name="HUD" parent="." unique_id=1732448802 instance=ExtResource("3_hud")]
 
 [node name="Exit" parent="." unique_id=2023957119 instance=ExtResource("3_uvc87")]
 position = Vector2(1160, 500)

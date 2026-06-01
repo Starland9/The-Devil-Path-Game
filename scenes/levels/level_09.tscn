@@ -3,10 +3,6 @@
 [ext_resource type="Script" uid="uid://b5448x1onumxn" path="res://scripts/level/level_base.gd" id="1_base"]
 [ext_resource type="Script" uid="uid://bxqy2vd0c56v7" path="res://scripts/level/components/fake_collectible.gd" id="2_fc"]
 [ext_resource type="PackedScene" uid="uid://cjffm3nbdsdcs" path="res://scenes/prefabs/exit/exit.tscn" id="3_33ykn"]
-[ext_resource type="PackedScene" uid="uid://b1hud" path="res://scenes/hud.tscn" id="3_hud"]
-
-[sub_resource type="RectangleShape2D" id="Rect_death"]
-size = Vector2(2000, 40)
 
 [sub_resource type="RectangleShape2D" id="Rect_floor"]
 size = Vector2(1280, 40)
@@ -27,20 +23,13 @@ size = Vector2(160, 24)
 script = ExtResource("1_base")
 level_id = 9
 next_level_scene = "res://scenes/levels/level_10.tscn"
+title = "Fake Coin"
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=1711180455]
 position = Vector2(120, 520)
 
-[node name="HUD" parent="." unique_id=2059488076 instance=ExtResource("3_hud")]
-
 [node name="Exit" parent="." unique_id=2023957119 instance=ExtResource("3_33ykn")]
 position = Vector2(1233, 527)
-
-[node name="DeathZone" type="Area2D" parent="." unique_id=1299404234]
-position = Vector2(640, 740)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone" unique_id=1563844337]
-shape = SubResource("Rect_death")
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=720445345]
 position = Vector2(640, 580)
@@ -55,9 +44,10 @@ offset_right = 640.0
 offset_bottom = 20.0
 color = Color(0.25, 0.25, 0.28, 1)
 
-[node name="FakeCollectible" type="Area2D" parent="." unique_id=1275730985]
+[node name="FakeCollectible" type="Area2D" parent="." unique_id=1275730985 node_paths=PackedStringArray("level_floor")]
 position = Vector2(640, 450)
 script = ExtResource("2_fc")
+level_floor = NodePath("../Floor")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FakeCollectible" unique_id=698135074]
 shape = SubResource("Rect_coin")
@@ -109,12 +99,3 @@ offset_top = -12.0
 offset_right = 80.0
 offset_bottom = 12.0
 color = Color(0.35, 0.35, 0.4, 1)
-
-[node name="LevelTitle" type="Label" parent="." unique_id=1787967158]
-offset_left = 40.0
-offset_top = 40.0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 0.4)
-theme_override_font_sizes/font_size = 24
-text = "FAKE COIN"

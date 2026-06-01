@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b1level20"]
 
-[ext_resource type="Script" path="res://scripts/level/level_base.gd" id="1_base"]
-[ext_resource type="Script" path="res://scripts/level/components/closing_walls.gd" id="2_cw"]
-[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="3_hud"]
+[ext_resource type="Script" uid="uid://b5448x1onumxn" path="res://scripts/level/level_base.gd" id="1_base"]
+[ext_resource type="Script" uid="uid://x1aalq4jbiyy" path="res://scripts/level/components/closing_walls.gd" id="2_cw"]
+[ext_resource type="PackedScene" uid="uid://cjffm3nbdsdcs" path="res://scenes/prefabs/exit/exit.tscn" id="3_5rpay"]
 
 [sub_resource type="RectangleShape2D" id="Rect_floor"]
 size = Vector2(240, 40)
@@ -10,136 +10,111 @@ size = Vector2(240, 40)
 [sub_resource type="RectangleShape2D" id="Rect_plat"]
 size = Vector2(100, 24)
 
-[sub_resource type="RectangleShape2D" id="Rect_exit"]
-size = Vector2(40, 64)
-
-[sub_resource type="RectangleShape2D" id="Rect_death"]
-size = Vector2(2000, 40)
-
 [sub_resource type="RectangleShape2D" id="Rect_wall"]
 size = Vector2(40, 720)
 
-[node name="Level20" type="Node2D"]
+[node name="Level20" type="Node2D" unique_id=1596078807]
 script = ExtResource("1_base")
 level_id = 20
 next_level_scene = "res://scenes/levels/level_21.tscn"
+title = "Panic Room"
 
-[node name="SpawnPoint" type="Marker2D" parent="."]
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1466847364]
 position = Vector2(640, 570)
 
-[node name="HUD" parent="." instance=ExtResource("3_hud")]
-
-[node name="Exit" type="Area2D" parent="."]
-position = Vector2(640, 130)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
-shape = SubResource("Rect_exit")
-
-[node name="ExitVisual" type="ColorRect" parent="Exit"]
-offset_left = -20.0
-offset_top = -64.0
-offset_right = 20.0
-offset_bottom = 0.0
-color = Color(0.1, 0.9, 0.3, 1)
-
-[node name="DeathZone" type="Area2D" parent="."]
-position = Vector2(640, 760)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
-shape = SubResource("Rect_death")
-
-[node name="Floor" type="StaticBody2D" parent="."]
+[node name="Floor" type="StaticBody2D" parent="." unique_id=1396412430]
 position = Vector2(640, 620)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=2147445725]
 shape = SubResource("Rect_floor")
 
-[node name="Visual" type="ColorRect" parent="Floor"]
+[node name="Visual" type="ColorRect" parent="Floor" unique_id=1837538230]
 offset_left = -120.0
 offset_top = -20.0
 offset_right = 120.0
 offset_bottom = 20.0
 color = Color(0.25, 0.25, 0.28, 1)
 
-[node name="Plat1" type="StaticBody2D" parent="."]
+[node name="Plat1" type="StaticBody2D" parent="." unique_id=770118872]
 position = Vector2(640, 530)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plat1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plat1" unique_id=202226378]
 shape = SubResource("Rect_plat")
 
-[node name="Visual" type="ColorRect" parent="Plat1"]
+[node name="Visual" type="ColorRect" parent="Plat1" unique_id=414762575]
 offset_left = -50.0
 offset_top = -12.0
 offset_right = 50.0
 offset_bottom = 12.0
 color = Color(0.25, 0.25, 0.28, 1)
 
-[node name="Plat2" type="StaticBody2D" parent="."]
+[node name="Plat2" type="StaticBody2D" parent="." unique_id=272447819]
 position = Vector2(640, 440)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plat2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plat2" unique_id=1744382651]
 shape = SubResource("Rect_plat")
 
-[node name="Visual" type="ColorRect" parent="Plat2"]
+[node name="Visual" type="ColorRect" parent="Plat2" unique_id=1679920330]
 offset_left = -50.0
 offset_top = -12.0
 offset_right = 50.0
 offset_bottom = 12.0
 color = Color(0.25, 0.25, 0.28, 1)
 
-[node name="Plat3" type="StaticBody2D" parent="."]
+[node name="Plat3" type="StaticBody2D" parent="." unique_id=51264882]
 position = Vector2(640, 350)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plat3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plat3" unique_id=1944238246]
 shape = SubResource("Rect_plat")
 
-[node name="Visual" type="ColorRect" parent="Plat3"]
+[node name="Visual" type="ColorRect" parent="Plat3" unique_id=1416250402]
 offset_left = -50.0
 offset_top = -12.0
 offset_right = 50.0
 offset_bottom = 12.0
 color = Color(0.25, 0.25, 0.28, 1)
 
-[node name="Plat4" type="StaticBody2D" parent="."]
+[node name="Plat4" type="StaticBody2D" parent="." unique_id=384899514]
 position = Vector2(640, 260)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plat4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plat4" unique_id=577505601]
 shape = SubResource("Rect_plat")
 
-[node name="Visual" type="ColorRect" parent="Plat4"]
+[node name="Visual" type="ColorRect" parent="Plat4" unique_id=1220205734]
 offset_left = -50.0
 offset_top = -12.0
 offset_right = 50.0
 offset_bottom = 12.0
 color = Color(0.25, 0.25, 0.28, 1)
 
-[node name="ClosingWalls" type="Node2D" parent="."]
+[node name="ClosingWalls" type="Node2D" parent="." unique_id=1951280297]
 script = ExtResource("2_cw")
-close_speed = 28.0
-kill_gap = 60.0
 
-[node name="LeftWall" type="StaticBody2D" parent="ClosingWalls"]
+[node name="LeftWall" type="StaticBody2D" parent="ClosingWalls" unique_id=742332201]
 position = Vector2(80, 360)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ClosingWalls/LeftWall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClosingWalls/LeftWall" unique_id=1174469330]
 shape = SubResource("Rect_wall")
 
-[node name="Visual" type="ColorRect" parent="ClosingWalls/LeftWall"]
+[node name="Visual" type="ColorRect" parent="ClosingWalls/LeftWall" unique_id=276923269]
 offset_left = -20.0
 offset_top = -360.0
 offset_right = 20.0
 offset_bottom = 360.0
 color = Color(0.6, 0.06, 0.06, 1)
 
-[node name="RightWall" type="StaticBody2D" parent="ClosingWalls"]
+[node name="RightWall" type="StaticBody2D" parent="ClosingWalls" unique_id=301586518]
 position = Vector2(1200, 360)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ClosingWalls/RightWall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClosingWalls/RightWall" unique_id=498140577]
 shape = SubResource("Rect_wall")
 
-[node name="Visual" type="ColorRect" parent="ClosingWalls/RightWall"]
+[node name="Visual" type="ColorRect" parent="ClosingWalls/RightWall" unique_id=1718457903]
 offset_left = -20.0
 offset_top = -360.0
 offset_right = 20.0
 offset_bottom = 360.0
 color = Color(0.6, 0.06, 0.06, 1)
+
+[node name="Exit" parent="." unique_id=2023957119 instance=ExtResource("3_5rpay")]
+position = Vector2(640, 119)

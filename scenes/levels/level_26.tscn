@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b1level26"]
 
-[ext_resource type="Script" path="res://scripts/level/level_base.gd" id="1_base"]
-[ext_resource type="Script" path="res://scripts/level/components/random_gravity.gd" id="2_rg"]
-[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="3_hud"]
+[ext_resource type="Script" uid="uid://b5448x1onumxn" path="res://scripts/level/level_base.gd" id="1_base"]
+[ext_resource type="Script" uid="uid://c5m1nx1cv0mjo" path="res://scripts/level/components/random_gravity.gd" id="2_rg"]
+[ext_resource type="PackedScene" uid="uid://cjffm3nbdsdcs" path="res://scenes/prefabs/exit/exit.tscn" id="3_k4gc0"]
 
 [sub_resource type="RectangleShape2D" id="Rect_floor"]
 size = Vector2(1280, 40)
@@ -11,108 +11,99 @@ size = Vector2(1280, 40)
 size = Vector2(1280, 40)
 
 [sub_resource type="RectangleShape2D" id="Rect_plat"]
-size = Vector2(200, 24)
+size = Vector2(411, 24)
 
-[sub_resource type="RectangleShape2D" id="Rect_exit"]
-size = Vector2(40, 64)
-
-[sub_resource type="RectangleShape2D" id="Rect_death"]
-size = Vector2(2000, 40)
-
-[node name="Level26" type="Node2D"]
+[node name="Level26" type="Node2D" unique_id=1001362790]
 script = ExtResource("1_base")
 level_id = 26
 next_level_scene = "res://scenes/levels/level_27.tscn"
+title = "Hidden Gravity"
 
-[node name="SpawnPoint" type="Marker2D" parent="."]
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=88535183]
 position = Vector2(120, 540)
 
-[node name="HUD" parent="." instance=ExtResource("3_hud")]
-
-[node name="RandomGravity" type="Node" parent="."]
+[node name="RandomGravity" type="Node" parent="." unique_id=1488012834]
 script = ExtResource("2_rg")
-change_interval = 3.0
 
-[node name="Exit" type="Area2D" parent="."]
-position = Vector2(1160, 540)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
-shape = SubResource("Rect_exit")
-
-[node name="ExitVisual" type="ColorRect" parent="Exit"]
-offset_left = -20.0
-offset_top = -64.0
-offset_right = 20.0
-offset_bottom = 0.0
-color = Color(0.1, 0.9, 0.3, 1)
-
-[node name="DeathZone" type="Area2D" parent="."]
-position = Vector2(640, 760)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
-shape = SubResource("Rect_death")
-
-[node name="Floor" type="StaticBody2D" parent="."]
+[node name="Floor" type="StaticBody2D" parent="." unique_id=264563884]
 position = Vector2(640, 580)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=2025093770]
 shape = SubResource("Rect_floor")
 
-[node name="Visual" type="ColorRect" parent="Floor"]
+[node name="Visual" type="ColorRect" parent="Floor" unique_id=229140419]
 offset_left = -640.0
 offset_top = -20.0
 offset_right = 640.0
 offset_bottom = 20.0
 color = Color(0.25, 0.25, 0.28, 1)
 
-[node name="Ceiling" type="StaticBody2D" parent="."]
+[node name="Ceiling" type="StaticBody2D" parent="." unique_id=719464810]
 position = Vector2(640, 60)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling" unique_id=1962146771]
 shape = SubResource("Rect_ceil")
 
-[node name="Visual" type="ColorRect" parent="Ceiling"]
+[node name="Visual" type="ColorRect" parent="Ceiling" unique_id=1286072612]
 offset_left = -640.0
 offset_top = -20.0
 offset_right = 640.0
 offset_bottom = 20.0
 color = Color(0.25, 0.25, 0.28, 1)
 
-[node name="PlatFloor1" type="StaticBody2D" parent="."]
-position = Vector2(400, 510)
+[node name="PlatFloor1" type="StaticBody2D" parent="." unique_id=113480592]
+position = Vector2(404, 442)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatFloor1"]
-shape = SubResource("Rect_plat")
-
-[node name="Visual" type="ColorRect" parent="PlatFloor1"]
-offset_left = -100.0
+[node name="Visual" type="ColorRect" parent="PlatFloor1" unique_id=1717186740]
+offset_left = -313.0
 offset_top = -12.0
 offset_right = 100.0
 offset_bottom = 12.0
 color = Color(0.25, 0.25, 0.28, 1)
 
-[node name="PlatCeil1" type="StaticBody2D" parent="."]
-position = Vector2(400, 130)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatCeil1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatFloor1" unique_id=258310552]
+position = Vector2(-105.5, 0)
 shape = SubResource("Rect_plat")
 
-[node name="Visual" type="ColorRect" parent="PlatCeil1"]
-offset_left = -100.0
+[node name="PlatCeil1" type="StaticBody2D" parent="." unique_id=1132817782]
+position = Vector2(294, 158)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatCeil1" unique_id=1268336110]
+shape = SubResource("Rect_plat")
+
+[node name="Visual" type="ColorRect" parent="PlatCeil1" unique_id=1655429452]
+offset_left = -202.0
 offset_top = -12.0
-offset_right = 100.0
+offset_right = 211.0
 offset_bottom = 12.0
 color = Color(0.25, 0.25, 0.28, 1)
 
-[node name="PlatMid" type="StaticBody2D" parent="."]
+[node name="PlatMid" type="StaticBody2D" parent="." unique_id=1956009151]
 position = Vector2(760, 320)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatMid"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatMid" unique_id=597671398]
 shape = SubResource("Rect_plat")
 
-[node name="Visual" type="ColorRect" parent="PlatMid"]
-offset_left = -100.0
+[node name="Visual" type="ColorRect" parent="PlatMid" unique_id=820586939]
+offset_left = -205.0
 offset_top = -12.0
-offset_right = 100.0
+offset_right = 205.0
 offset_bottom = 12.0
 color = Color(0.25, 0.25, 0.28, 1)
+
+[node name="PlatMid" type="StaticBody2D" parent="PlatMid" unique_id=870375992]
+position = Vector2(312, 35)
+rotation = -1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatMid/PlatMid" unique_id=1356340487]
+shape = SubResource("Rect_plat")
+
+[node name="Visual" type="ColorRect" parent="PlatMid/PlatMid" unique_id=406076326]
+offset_left = -205.0
+offset_top = -12.0
+offset_right = 205.0
+offset_bottom = 12.0
+color = Color(0.25, 0.25, 0.28, 1)
+
+[node name="Exit" parent="." unique_id=2023957119 instance=ExtResource("3_k4gc0")]
+position = Vector2(1234, 528)

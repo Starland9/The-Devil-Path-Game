@@ -1,161 +1,132 @@
 [gd_scene format=3 uid="uid://b1level11"]
 
-[ext_resource type="Script" path="res://scripts/level/level_base.gd" id="1_base"]
-[ext_resource type="Script" path="res://scripts/level/components/falling_ceiling_spike.gd" id="2_fcs"]
-[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="3_hud"]
-
-[sub_resource type="RectangleShape2D" id="Rect_spike"]
-size = Vector2(24, 40)
+[ext_resource type="Script" uid="uid://b5448x1onumxn" path="res://scripts/level/level_base.gd" id="1_base"]
+[ext_resource type="PackedScene" uid="uid://cjffm3nbdsdcs" path="res://scenes/prefabs/exit/exit.tscn" id="2_ajlgv"]
+[ext_resource type="Script" uid="uid://c40k6a1ucy42" path="res://scripts/level/components/falling_ceiling_spike.gd" id="2_fcs"]
 
 [sub_resource type="RectangleShape2D" id="Rect_floor"]
 size = Vector2(2000, 40)
 
-[sub_resource type="RectangleShape2D" id="Rect_exit"]
-size = Vector2(40, 64)
+[sub_resource type="RectangleShape2D" id="Rect_spike"]
+size = Vector2(24, 40)
 
-[sub_resource type="RectangleShape2D" id="Rect_death"]
-size = Vector2(2000, 40)
-
-[node name="Level11" type="Node2D"]
+[node name="Level11" type="Node2D" unique_id=978602167]
 script = ExtResource("1_base")
 level_id = 11
 next_level_scene = "res://scenes/levels/level_12.tscn"
+title = "The Ceiling Hates You"
 
-[node name="SpawnPoint" type="Marker2D" parent="."]
+[node name="Exit" parent="." unique_id=2023957119 instance=ExtResource("2_ajlgv")]
+position = Vector2(1227, 530)
+
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1235168762]
 position = Vector2(100, 540)
 
-[node name="HUD" parent="." instance=ExtResource("3_hud")]
-
-[node name="Exit" type="Area2D" parent="."]
-position = Vector2(1160, 540)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
-shape = SubResource("Rect_exit")
-
-[node name="ExitVisual" type="ColorRect" parent="Exit"]
-offset_left = -20.0
-offset_top = -64.0
-offset_right = 20.0
-offset_bottom = 0.0
-color = Color(0.1, 0.9, 0.3, 1)
-
-[node name="DeathZone" type="Area2D" parent="."]
-position = Vector2(640, 760)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
-shape = SubResource("Rect_death")
-
-[node name="Floor" type="StaticBody2D" parent="."]
+[node name="Floor" type="StaticBody2D" parent="." unique_id=1970540291]
 position = Vector2(640, 580)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1745926303]
 shape = SubResource("Rect_floor")
 
-[node name="Visual" type="ColorRect" parent="Floor"]
+[node name="Visual" type="ColorRect" parent="Floor" unique_id=1381404761]
 offset_left = -1000.0
 offset_top = -20.0
 offset_right = 1000.0
 offset_bottom = 20.0
 color = Color(0.25, 0.25, 0.28, 1)
 
-[node name="Spike1" type="Node2D" parent="."]
-position = Vector2(240, 60)
+[node name="Spike1" type="Node2D" parent="." unique_id=250188006]
+position = Vector2(227, -53)
 script = ExtResource("2_fcs")
 
-[node name="Visual" type="ColorRect" parent="Spike1"]
+[node name="Visual" type="ColorRect" parent="Spike1" unique_id=2071864527]
 offset_left = -12.0
-offset_top = 0.0
 offset_right = 12.0
 offset_bottom = 40.0
 color = Color(0.85, 0.1, 0.1, 1)
 
-[node name="KillArea" type="Area2D" parent="Spike1"]
+[node name="KillArea" type="Area2D" parent="Spike1" unique_id=345214455]
 position = Vector2(0, 20)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike1/KillArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike1/KillArea" unique_id=527035302]
 shape = SubResource("Rect_spike")
 
-[node name="Spike2" type="Node2D" parent="."]
-position = Vector2(400, 60)
+[node name="Spike2" type="Node2D" parent="." unique_id=1835279380]
+position = Vector2(387, -53)
 script = ExtResource("2_fcs")
 
-[node name="Visual" type="ColorRect" parent="Spike2"]
+[node name="Visual" type="ColorRect" parent="Spike2" unique_id=70365930]
 offset_left = -12.0
-offset_top = 0.0
 offset_right = 12.0
 offset_bottom = 40.0
 color = Color(0.85, 0.1, 0.1, 1)
 
-[node name="KillArea" type="Area2D" parent="Spike2"]
+[node name="KillArea" type="Area2D" parent="Spike2" unique_id=793205815]
 position = Vector2(0, 20)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike2/KillArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike2/KillArea" unique_id=465758035]
 shape = SubResource("Rect_spike")
 
-[node name="Spike3" type="Node2D" parent="."]
-position = Vector2(560, 60)
+[node name="Spike3" type="Node2D" parent="." unique_id=2120437807]
+position = Vector2(547, -53)
 script = ExtResource("2_fcs")
 
-[node name="Visual" type="ColorRect" parent="Spike3"]
+[node name="Visual" type="ColorRect" parent="Spike3" unique_id=465598895]
 offset_left = -12.0
-offset_top = 0.0
 offset_right = 12.0
 offset_bottom = 40.0
 color = Color(0.85, 0.1, 0.1, 1)
 
-[node name="KillArea" type="Area2D" parent="Spike3"]
+[node name="KillArea" type="Area2D" parent="Spike3" unique_id=1609999675]
 position = Vector2(0, 20)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike3/KillArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike3/KillArea" unique_id=403606759]
 shape = SubResource("Rect_spike")
 
-[node name="Spike4" type="Node2D" parent="."]
-position = Vector2(720, 60)
+[node name="Spike4" type="Node2D" parent="." unique_id=1040760740]
+position = Vector2(707, -53)
 script = ExtResource("2_fcs")
 
-[node name="Visual" type="ColorRect" parent="Spike4"]
+[node name="Visual" type="ColorRect" parent="Spike4" unique_id=349002766]
 offset_left = -12.0
-offset_top = 0.0
 offset_right = 12.0
 offset_bottom = 40.0
 color = Color(0.85, 0.1, 0.1, 1)
 
-[node name="KillArea" type="Area2D" parent="Spike4"]
+[node name="KillArea" type="Area2D" parent="Spike4" unique_id=880909611]
 position = Vector2(0, 20)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike4/KillArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike4/KillArea" unique_id=2010114083]
 shape = SubResource("Rect_spike")
 
-[node name="Spike5" type="Node2D" parent="."]
-position = Vector2(880, 60)
+[node name="Spike5" type="Node2D" parent="." unique_id=1471332516]
+position = Vector2(867, -53)
 script = ExtResource("2_fcs")
 
-[node name="Visual" type="ColorRect" parent="Spike5"]
+[node name="Visual" type="ColorRect" parent="Spike5" unique_id=2089622133]
 offset_left = -12.0
-offset_top = 0.0
 offset_right = 12.0
 offset_bottom = 40.0
 color = Color(0.85, 0.1, 0.1, 1)
 
-[node name="KillArea" type="Area2D" parent="Spike5"]
+[node name="KillArea" type="Area2D" parent="Spike5" unique_id=2145428593]
 position = Vector2(0, 20)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike5/KillArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike5/KillArea" unique_id=1322928761]
 shape = SubResource("Rect_spike")
 
-[node name="Spike6" type="Node2D" parent="."]
-position = Vector2(1040, 60)
+[node name="Spike6" type="Node2D" parent="." unique_id=1272742665]
+position = Vector2(1027, -53)
 script = ExtResource("2_fcs")
 
-[node name="Visual" type="ColorRect" parent="Spike6"]
+[node name="Visual" type="ColorRect" parent="Spike6" unique_id=67982181]
 offset_left = -12.0
-offset_top = 0.0
 offset_right = 12.0
 offset_bottom = 40.0
 color = Color(0.85, 0.1, 0.1, 1)
 
-[node name="KillArea" type="Area2D" parent="Spike6"]
+[node name="KillArea" type="Area2D" parent="Spike6" unique_id=1897875875]
 position = Vector2(0, 20)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike6/KillArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike6/KillArea" unique_id=1270019734]
 shape = SubResource("Rect_spike")

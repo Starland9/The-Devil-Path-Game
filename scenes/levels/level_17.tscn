@@ -1,123 +1,106 @@
 [gd_scene format=3 uid="uid://b1level17"]
 
-[ext_resource type="Script" path="res://scripts/level/level_base.gd" id="1_base"]
-[ext_resource type="Script" path="res://scripts/level/components/chaser_enemy.gd" id="2_ce"]
-[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="3_hud"]
+[ext_resource type="Script" uid="uid://b5448x1onumxn" path="res://scripts/level/level_base.gd" id="1_base"]
+[ext_resource type="Script" uid="uid://ba7xqe0a0r4u2" path="res://scripts/level/components/chaser_enemy.gd" id="2_ce"]
+[ext_resource type="PackedScene" uid="uid://cjffm3nbdsdcs" path="res://scenes/prefabs/exit/exit.tscn" id="2_omb4e"]
 
 [sub_resource type="RectangleShape2D" id="Rect_floor"]
 size = Vector2(1280, 40)
 
 [sub_resource type="RectangleShape2D" id="Rect_plat"]
-size = Vector2(160, 24)
+size = Vector2(81, 24)
 
 [sub_resource type="RectangleShape2D" id="Rect_plat_wide"]
-size = Vector2(200, 24)
-
-[sub_resource type="RectangleShape2D" id="Rect_exit"]
-size = Vector2(40, 64)
-
-[sub_resource type="RectangleShape2D" id="Rect_death"]
-size = Vector2(2000, 40)
+size = Vector2(78, 24)
 
 [sub_resource type="RectangleShape2D" id="Rect_enemy"]
-size = Vector2(28, 44)
+size = Vector2(26, 44)
 
-[node name="Level17" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_omb4e"]
+size = Vector2(28, 46.125)
+
+[node name="Level17" type="Node2D" unique_id=1648359936]
 script = ExtResource("1_base")
 level_id = 17
 next_level_scene = "res://scenes/levels/level_18.tscn"
+title = "The Chase"
 
-[node name="SpawnPoint" type="Marker2D" parent="."]
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1876829555]
 position = Vector2(100, 540)
 
-[node name="HUD" parent="." instance=ExtResource("3_hud")]
+[node name="Exit" parent="." unique_id=2023957119 instance=ExtResource("2_omb4e")]
+position = Vector2(1160, 315)
 
-[node name="Exit" type="Area2D" parent="."]
-position = Vector2(1100, 290)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
-shape = SubResource("Rect_exit")
-
-[node name="ExitVisual" type="ColorRect" parent="Exit"]
-offset_left = -20.0
-offset_top = -64.0
-offset_right = 20.0
-offset_bottom = 0.0
-color = Color(0.1, 0.9, 0.3, 1)
-
-[node name="DeathZone" type="Area2D" parent="."]
-position = Vector2(640, 760)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
-shape = SubResource("Rect_death")
-
-[node name="Floor" type="StaticBody2D" parent="."]
+[node name="Floor" type="StaticBody2D" parent="." unique_id=166103953]
 position = Vector2(640, 580)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1349131424]
 shape = SubResource("Rect_floor")
 
-[node name="Visual" type="ColorRect" parent="Floor"]
+[node name="Visual" type="ColorRect" parent="Floor" unique_id=1615066990]
 offset_left = -640.0
 offset_top = -20.0
 offset_right = 640.0
 offset_bottom = 20.0
 color = Color(0.25, 0.25, 0.28, 1)
 
-[node name="Platform1" type="StaticBody2D" parent="."]
+[node name="Platform1" type="StaticBody2D" parent="." unique_id=1208930862]
 position = Vector2(400, 470)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1" unique_id=648786763]
 shape = SubResource("Rect_plat")
 
-[node name="Visual" type="ColorRect" parent="Platform1"]
+[node name="Visual" type="ColorRect" parent="Platform1" unique_id=303538964]
 offset_left = -80.0
 offset_top = -12.0
 offset_right = 80.0
 offset_bottom = 12.0
 color = Color(0.25, 0.25, 0.28, 1)
 
-[node name="Platform2" type="StaticBody2D" parent="."]
+[node name="Platform2" type="StaticBody2D" parent="." unique_id=1244019592]
 position = Vector2(900, 470)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2" unique_id=641718018]
+position = Vector2(39.5, 0)
 shape = SubResource("Rect_plat")
 
-[node name="Visual" type="ColorRect" parent="Platform2"]
+[node name="Visual" type="ColorRect" parent="Platform2" unique_id=1091477360]
 offset_left = -80.0
 offset_top = -12.0
 offset_right = 80.0
 offset_bottom = 12.0
 color = Color(0.25, 0.25, 0.28, 1)
 
-[node name="TopPlatform" type="StaticBody2D" parent="."]
+[node name="TopPlatform" type="StaticBody2D" parent="." unique_id=2091677108]
 position = Vector2(1100, 360)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TopPlatform"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopPlatform" unique_id=1487802706]
+position = Vector2(61, 0)
 shape = SubResource("Rect_plat_wide")
 
-[node name="Visual" type="ColorRect" parent="TopPlatform"]
+[node name="Visual" type="ColorRect" parent="TopPlatform" unique_id=1587921556]
 offset_left = -100.0
 offset_top = -12.0
 offset_right = 100.0
 offset_bottom = 12.0
 color = Color(0.25, 0.25, 0.28, 1)
 
-[node name="Enemy" type="CharacterBody2D" parent="."]
+[node name="Enemy" type="CharacterBody2D" parent="." unique_id=994192775]
 position = Vector2(100, 200)
 script = ExtResource("2_ce")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
-shape = SubResource("Rect_enemy")
-
-[node name="Visual" type="ColorRect" parent="Enemy"]
+[node name="Visual" type="ColorRect" parent="Enemy" unique_id=1301228343]
 offset_left = -14.0
 offset_top = -22.0
 offset_right = 14.0
 offset_bottom = 22.0
-color = Color(0.9, 0.45, 0.0, 1)
+color = Color(0.9, 0.45, 0, 1)
 
-[node name="KillArea" type="Area2D" parent="Enemy"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/KillArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy" unique_id=1094690580]
 shape = SubResource("Rect_enemy")
+
+[node name="KillArea" type="Area2D" parent="Enemy" unique_id=787794730]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/KillArea" unique_id=1630649389]
+position = Vector2(0, -0.0625)
+shape = SubResource("RectangleShape2D_omb4e")

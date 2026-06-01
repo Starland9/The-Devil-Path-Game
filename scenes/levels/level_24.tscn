@@ -1,118 +1,89 @@
 [gd_scene format=3 uid="uid://b1level24"]
 
-[ext_resource type="Script" path="res://scripts/level/level_base.gd" id="1_base"]
-[ext_resource type="Script" path="res://scripts/level/components/lava_spawner.gd" id="2_ls"]
-[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="3_hud"]
+[ext_resource type="Script" uid="uid://b5448x1onumxn" path="res://scripts/level/level_base.gd" id="1_base"]
+[ext_resource type="PackedScene" uid="uid://cjffm3nbdsdcs" path="res://scenes/prefabs/exit/exit.tscn" id="2_1loos"]
+[ext_resource type="Script" uid="uid://bg6nisrvqvxah" path="res://scripts/level/components/lava_spawner.gd" id="2_ls"]
 
 [sub_resource type="RectangleShape2D" id="Rect_plat"]
-size = Vector2(160, 28)
+size = Vector2(53, 28)
 
-[sub_resource type="RectangleShape2D" id="Rect_exit"]
-size = Vector2(40, 64)
-
-[sub_resource type="RectangleShape2D" id="Rect_death"]
-size = Vector2(2000, 40)
-
-[node name="Level24" type="Node2D"]
+[node name="Level24" type="Node2D" unique_id=285688113]
 script = ExtResource("1_base")
 level_id = 24
 next_level_scene = "res://scenes/levels/level_25.tscn"
+title = "Floor Is Lava"
 
-[node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(120, 400)
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1707788228]
+position = Vector2(61, 275)
 
-[node name="HUD" parent="." instance=ExtResource("3_hud")]
+[node name="Exit" parent="." unique_id=2023957119 instance=ExtResource("2_1loos")]
+position = Vector2(1196, 206)
 
-[node name="LavaSpawner" type="Node" parent="."]
+[node name="LavaSpawner" type="Node" parent="." unique_id=144489487]
 script = ExtResource("2_ls")
-idle_time = 1.5
 
-[node name="Exit" type="Area2D" parent="."]
-position = Vector2(1140, 220)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
-shape = SubResource("Rect_exit")
-
-[node name="ExitVisual" type="ColorRect" parent="Exit"]
-offset_left = -20.0
-offset_top = -64.0
-offset_right = 20.0
-offset_bottom = 0.0
-color = Color(0.1, 0.9, 0.3, 1)
-
-[node name="DeathZone" type="Area2D" parent="."]
-position = Vector2(640, 760)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
-shape = SubResource("Rect_death")
-
-[node name="Plat1" type="StaticBody2D" parent="."]
+[node name="Plat1" type="StaticBody2D" parent="." unique_id=1459716660]
 position = Vector2(120, 440)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plat1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plat1" unique_id=18821662]
+position = Vector2(-53.5, 0)
 shape = SubResource("Rect_plat")
 
-[node name="Visual" type="ColorRect" parent="Plat1"]
+[node name="Visual" type="ColorRect" parent="Plat1" unique_id=2103130151]
 offset_left = -80.0
 offset_top = -14.0
 offset_right = 80.0
 offset_bottom = 14.0
 color = Color(0.25, 0.25, 0.28, 1)
 
-[node name="Plat2" type="StaticBody2D" parent="."]
+[node name="Plat2" type="StaticBody2D" parent="." unique_id=1064962654]
 position = Vector2(370, 390)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plat2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plat2" unique_id=1553940132]
 shape = SubResource("Rect_plat")
 
-[node name="Visual" type="ColorRect" parent="Plat2"]
+[node name="Visual" type="ColorRect" parent="Plat2" unique_id=533346706]
 offset_left = -80.0
 offset_top = -14.0
 offset_right = 80.0
 offset_bottom = 14.0
 color = Color(0.25, 0.25, 0.28, 1)
 
-[node name="Plat3" type="StaticBody2D" parent="."]
+[node name="Plat3" type="StaticBody2D" parent="." unique_id=1958491927]
 position = Vector2(620, 340)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plat3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plat3" unique_id=228801269]
 shape = SubResource("Rect_plat")
 
-[node name="Visual" type="ColorRect" parent="Plat3"]
+[node name="Visual" type="ColorRect" parent="Plat3" unique_id=1155291518]
 offset_left = -80.0
 offset_top = -14.0
 offset_right = 80.0
 offset_bottom = 14.0
 color = Color(0.25, 0.25, 0.28, 1)
 
-[node name="Plat4" type="StaticBody2D" parent="."]
+[node name="Plat4" type="StaticBody2D" parent="." unique_id=1946618535]
 position = Vector2(870, 290)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plat4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plat4" unique_id=466237161]
 shape = SubResource("Rect_plat")
 
-[node name="Visual" type="ColorRect" parent="Plat4"]
+[node name="Visual" type="ColorRect" parent="Plat4" unique_id=621035877]
 offset_left = -80.0
 offset_top = -14.0
-offset_right = 80.0
+offset_right = 81.0
 offset_bottom = 14.0
 color = Color(0.25, 0.25, 0.28, 1)
 
-[node name="Plat5" type="StaticBody2D" parent="."]
+[node name="Plat5" type="StaticBody2D" parent="." unique_id=790443715]
 position = Vector2(1140, 250)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plat5"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plat5" unique_id=553959618]
 shape = SubResource("Rect_plat")
 
-[node name="Visual" type="ColorRect" parent="Plat5"]
+[node name="Visual" type="ColorRect" parent="Plat5" unique_id=1868484927]
 offset_left = -80.0
 offset_top = -14.0
 offset_right = 80.0
 offset_bottom = 14.0
 color = Color(0.25, 0.25, 0.28, 1)
-
-[node name="Warning" type="Label" parent="."]
-position = Vector2(510, 140)
-text = "KEEP MOVING"
-theme_override_font_sizes/font_size = 16
-theme_override_colors/font_color = Color(0.9, 0.35, 0.05, 0.6)
