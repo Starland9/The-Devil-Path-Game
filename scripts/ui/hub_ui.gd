@@ -3,6 +3,7 @@ extends Node
 @onready var grid: GridContainer = $Root/Scroll/Grid
 @onready var back_btn: Button    = $Root/BackButton
 @onready var title_lbl: Label    = $Root/TitleLabel
+@onready var scroll: ScrollContainer = $Root/Scroll
 
 const TOTAL_LEVELS := 100
 
@@ -11,7 +12,14 @@ var _gs: Node
 func _ready() -> void:
 	_gs = get_node("/root/GameState")
 	back_btn.pressed.connect(_on_back)
+	_resize_grid()
 	_populate()
+	
+	
+func _resize_grid():
+	var w := scroll.size.x
+	
+	grid.columns = int(w / (64 + grid.get_theme_constant("h_separation")))
 
 func _populate() -> void:
 	for child in grid.get_children():
