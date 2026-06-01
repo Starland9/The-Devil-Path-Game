@@ -1,25 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1player"]
+[gd_scene format=3 uid="uid://b1player"]
 
-[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_player"]
-[ext_resource type="Script" path="res://scripts/player/player_abilities.gd" id="2_abilities"]
+[ext_resource type="Script" uid="uid://b05g0n0lir2vo" path="res://scripts/player/player.gd" id="1_player"]
+[ext_resource type="Script" uid="uid://l7sfdmtqb5tc" path="res://scripts/player/player_abilities.gd" id="2_abilities"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1"]
 radius = 14.0
 height = 44.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=364325605 groups=["player"]]
 script = ExtResource("1_player")
 
-[node name="Sprite" type="ColorRect" parent="."]
+[node name="Sprite" type="ColorRect" parent="." unique_id=1934568753]
 offset_left = -14.0
 offset_top = -44.0
 offset_right = 14.0
-offset_bottom = 0.0
-color = Color(0.9, 0.18, 0.18, 1)
+color = Color(0, 0.47512966, 0.9995907, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1166270605]
 position = Vector2(0, -22)
 shape = SubResource("CapsuleShape2D_1")
 
-[node name="PlayerAbilities" type="Node" parent="."]
+[node name="PlayerAbilities" type="Node" parent="." unique_id=889021750]
 script = ExtResource("2_abilities")

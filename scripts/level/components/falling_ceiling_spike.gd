@@ -4,9 +4,9 @@ class_name FallingCeilingSpike
 # TROLL — Level 11: The Ceiling Hates You
 # Falls when the player runs underneath at speed.
 
-@export var trigger_speed: float = 160.0
-@export var fall_speed: float    = 580.0
-@export var warning_time: float  = 0.35
+@export var trigger_speed: float = 50.0
+@export var fall_speed: float    = 2000.0
+@export var warning_time: float  = 0.0
 
 @onready var visual: ColorRect = $Visual
 @onready var kill_area: Area2D = $KillArea

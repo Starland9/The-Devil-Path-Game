@@ -4,7 +4,7 @@ class_name ChaserEnemy
 # TROLL — Level 17: The Chase
 # Follows the player relentlessly. Indestructible.
 
-@export var speed: float   = 155.0
+@export var speed: float   = 200.0
 @export var gravity: float = 1400.0
 
 @onready var visual: ColorRect = $Visual

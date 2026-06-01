@@ -1,11 +1,8 @@
 [gd_scene format=3 uid="uid://b1level3a"]
 
-[ext_resource type="Script" path="res://scripts/level/level_base.gd" id="1_base"]
-[ext_resource type="Script" path="res://scripts/level/components/speed_accelerator.gd" id="2_sa"]
-[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="3_hud"]
-
-[sub_resource type="RectangleShape2D" id="Rect_floor"]
-size = Vector2(1280, 40)
+[ext_resource type="Script" uid="uid://b5448x1onumxn" path="res://scripts/level/level_base.gd" id="1_base"]
+[ext_resource type="Script" uid="uid://bm5mxxdh4hkqh" path="res://scripts/level/components/speed_accelerator.gd" id="2_sa"]
+[ext_resource type="PackedScene" uid="uid://cjffm3nbdsdcs" path="res://scenes/prefabs/exit/exit.tscn" id="3_oojbg"]
 
 [sub_resource type="RectangleShape2D" id="Rect_barrier"]
 size = Vector2(20, 200)
@@ -13,113 +10,94 @@ size = Vector2(20, 200)
 [sub_resource type="RectangleShape2D" id="Rect_gap"]
 size = Vector2(20, 100)
 
-[sub_resource type="RectangleShape2D" id="Rect_exit"]
-size = Vector2(40, 64)
+[sub_resource type="RectangleShape2D" id="Rect_floor"]
+size = Vector2(1280, 40)
 
-[sub_resource type="RectangleShape2D" id="Rect_death"]
-size = Vector2(2000, 40)
-
-[node name="Level29" type="Node2D"]
+[node name="Level29" type="Node2D" unique_id=807672219]
 script = ExtResource("1_base")
 level_id = 29
 next_level_scene = "res://scenes/levels/level_30.tscn"
 
-[node name="SpawnPoint" type="Marker2D" parent="."]
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=48083558]
 position = Vector2(80, 540)
 
-[node name="HUD" parent="." instance=ExtResource("3_hud")]
+[node name="Exit" parent="." unique_id=2023957119 instance=ExtResource("3_oojbg")]
+position = Vector2(1203, 532)
 
-[node name="SpeedAccelerator" type="Node" parent="."]
+[node name="SpeedAccelerator" type="Node" parent="." unique_id=1203292932]
 script = ExtResource("2_sa")
 acceleration = 22.0
-max_bonus = 380.0
 
-[node name="Exit" type="Area2D" parent="."]
-position = Vector2(1200, 540)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
-shape = SubResource("Rect_exit")
-
-[node name="ExitVisual" type="ColorRect" parent="Exit"]
-offset_left = -20.0
-offset_top = -64.0
-offset_right = 20.0
-offset_bottom = 0.0
-color = Color(0.1, 0.9, 0.3, 1)
-
-[node name="DeathZone" type="Area2D" parent="."]
-position = Vector2(640, 760)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
-shape = SubResource("Rect_death")
-
-[node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(640, 580)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-shape = SubResource("Rect_floor")
-
-[node name="Visual" type="ColorRect" parent="Floor"]
-offset_left = -640.0
-offset_top = -20.0
-offset_right = 640.0
-offset_bottom = 20.0
-color = Color(0.25, 0.25, 0.28, 1)
-
-[node name="Barrier1" type="StaticBody2D" parent="."]
+[node name="Barrier1" type="StaticBody2D" parent="." unique_id=254412283]
 position = Vector2(340, 480)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier1" unique_id=376993760]
 shape = SubResource("Rect_barrier")
 
-[node name="Visual" type="ColorRect" parent="Barrier1"]
+[node name="Visual" type="ColorRect" parent="Barrier1" unique_id=846781827]
 offset_left = -10.0
 offset_top = -100.0
 offset_right = 10.0
 offset_bottom = 100.0
 color = Color(0.6, 0.15, 0.15, 1)
 
-[node name="Barrier2" type="StaticBody2D" parent="."]
+[node name="Barrier2" type="StaticBody2D" parent="." unique_id=1517316876]
 position = Vector2(620, 480)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier2" unique_id=1743773862]
 shape = SubResource("Rect_barrier")
 
-[node name="Visual" type="ColorRect" parent="Barrier2"]
+[node name="Visual" type="ColorRect" parent="Barrier2" unique_id=1752044971]
 offset_left = -10.0
 offset_top = -100.0
 offset_right = 10.0
 offset_bottom = 100.0
 color = Color(0.6, 0.15, 0.15, 1)
 
-[node name="Barrier3" type="StaticBody2D" parent="."]
+[node name="Barrier3" type="StaticBody2D" parent="." unique_id=936444714]
 position = Vector2(880, 480)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier3" unique_id=2087717047]
 shape = SubResource("Rect_barrier")
 
-[node name="Visual" type="ColorRect" parent="Barrier3"]
+[node name="Visual" type="ColorRect" parent="Barrier3" unique_id=1983386340]
 offset_left = -10.0
 offset_top = -100.0
 offset_right = 10.0
 offset_bottom = 100.0
 color = Color(0.6, 0.15, 0.15, 1)
 
-[node name="GapBeam1" type="StaticBody2D" parent="."]
+[node name="GapBeam1" type="StaticBody2D" parent="." unique_id=1115232917]
 position = Vector2(340, 480)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GapBeam1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GapBeam1" unique_id=378747494]
 shape = SubResource("Rect_gap")
 
-[node name="Visual" type="ColorRect" parent="GapBeam1"]
+[node name="Visual" type="ColorRect" parent="GapBeam1" unique_id=156704421]
 offset_left = -10.0
 offset_top = -50.0
 offset_right = 10.0
 offset_bottom = 50.0
 color = Color(0.12, 0.12, 0.14, 1)
 
-[node name="HintLabel" type="Label" parent="."]
-position = Vector2(480, 440)
-text = "SPRINT UNLOCKED! → HOLD CTRL"
+[node name="Floor" type="StaticBody2D" parent="." unique_id=2114114494]
+position = Vector2(640, 580)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1349468309]
+shape = SubResource("Rect_floor")
+
+[node name="Visual" type="ColorRect" parent="Floor" unique_id=428476439]
+offset_left = -640.0
+offset_top = -20.0
+offset_right = 640.0
+offset_bottom = 20.0
+color = Color(0.25, 0.25, 0.28, 1)
+
+[node name="HintLabel" type="Label" parent="." unique_id=196426862]
+offset_left = 480.0
+offset_top = 251.0
+offset_right = 691.0
+offset_bottom = 269.0
+theme_override_colors/font_color = Color(0.6, 0.8, 1, 0.6)
 theme_override_font_sizes/font_size = 13
-theme_override_colors/font_color = Color(0.6, 0.8, 1.0, 0.6)
+text = "SPRINT UNLOCKED! → HOLD CTRL"

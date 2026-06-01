@@ -1,95 +1,75 @@
 [gd_scene format=3 uid="uid://b1level21"]
 
-[ext_resource type="Script" path="res://scripts/level/level_base.gd" id="1_base"]
-[ext_resource type="Script" path="res://scripts/level/components/troll_coin.gd" id="2_tc"]
-[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="3_hud"]
+[ext_resource type="Script" uid="uid://b5448x1onumxn" path="res://scripts/level/level_base.gd" id="1_base"]
+[ext_resource type="Script" uid="uid://bfmjuew2wtfk3" path="res://scripts/level/components/troll_coin.gd" id="2_tc"]
+[ext_resource type="PackedScene" uid="uid://cjffm3nbdsdcs" path="res://scenes/prefabs/exit/exit.tscn" id="3_ipl4r"]
 
 [sub_resource type="RectangleShape2D" id="Rect_floor"]
 size = Vector2(1280, 40)
 
-[sub_resource type="RectangleShape2D" id="Rect_coin"]
-size = Vector2(28, 28)
-
 [sub_resource type="RectangleShape2D" id="Rect_plat"]
 size = Vector2(160, 24)
 
-[sub_resource type="RectangleShape2D" id="Rect_exit"]
-size = Vector2(40, 64)
+[sub_resource type="RectangleShape2D" id="Rect_coin"]
+size = Vector2(28, 28)
 
-[sub_resource type="RectangleShape2D" id="Rect_death"]
-size = Vector2(2000, 40)
-
-[node name="Level21" type="Node2D"]
+[node name="Level21" type="Node2D" unique_id=2097334419]
 script = ExtResource("1_base")
 level_id = 21
 next_level_scene = "res://scenes/levels/level_22.tscn"
+title = "The Troll Coin"
 
-[node name="SpawnPoint" type="Marker2D" parent="."]
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1711944550]
 position = Vector2(120, 540)
 
-[node name="HUD" parent="." instance=ExtResource("3_hud")]
+[node name="Exit" parent="." unique_id=2023957119 instance=ExtResource("3_ipl4r")]
+position = Vector2(1225, 528)
 
-[node name="Exit" type="Area2D" parent="."]
-position = Vector2(1160, 540)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
-shape = SubResource("Rect_exit")
-
-[node name="ExitVisual" type="ColorRect" parent="Exit"]
-offset_left = -20.0
-offset_top = -64.0
-offset_right = 20.0
-offset_bottom = 0.0
-color = Color(0.1, 0.9, 0.3, 1)
-
-[node name="DeathZone" type="Area2D" parent="."]
-position = Vector2(640, 760)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
-shape = SubResource("Rect_death")
-
-[node name="Floor" type="StaticBody2D" parent="."]
+[node name="Floor" type="StaticBody2D" parent="." unique_id=105231481]
 position = Vector2(640, 580)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1997138744]
 shape = SubResource("Rect_floor")
 
-[node name="Visual" type="ColorRect" parent="Floor"]
+[node name="Visual" type="ColorRect" parent="Floor" unique_id=1992589916]
 offset_left = -640.0
 offset_top = -20.0
 offset_right = 640.0
 offset_bottom = 20.0
 color = Color(0.25, 0.25, 0.28, 1)
 
-[node name="CoinPedestal" type="StaticBody2D" parent="."]
+[node name="CoinPedestal" type="StaticBody2D" parent="." unique_id=1434111302]
 position = Vector2(640, 540)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CoinPedestal"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoinPedestal" unique_id=545334844]
 shape = SubResource("Rect_plat")
 
-[node name="Visual" type="ColorRect" parent="CoinPedestal"]
+[node name="Visual" type="ColorRect" parent="CoinPedestal" unique_id=414594013]
 offset_left = -80.0
 offset_top = -12.0
 offset_right = 80.0
 offset_bottom = 12.0
 color = Color(0.22, 0.22, 0.25, 1)
 
-[node name="TrollCoin" type="Area2D" parent="."]
+[node name="TrollCoin" type="Area2D" parent="." unique_id=1572890819]
 position = Vector2(640, 504)
 script = ExtResource("2_tc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TrollCoin"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrollCoin" unique_id=1051160342]
 shape = SubResource("Rect_coin")
 
-[node name="Visual" type="ColorRect" parent="TrollCoin"]
+[node name="Visual" type="ColorRect" parent="TrollCoin" unique_id=305834577]
 offset_left = -14.0
 offset_top = -14.0
 offset_right = 14.0
 offset_bottom = 14.0
-color = Color(1.0, 0.82, 0.0, 1)
+color = Color(1, 0.82, 0, 1)
 
-[node name="Hint" type="Label" parent="."]
-position = Vector2(600, 460)
-text = "FREE COIN!"
+[node name="Hint" type="Label" parent="." unique_id=353538591]
+offset_left = 600.0
+offset_top = 460.0
+offset_right = 600.0
+offset_bottom = 460.0
+theme_override_colors/font_color = Color(1, 0.9, 0.1, 0.7)
 theme_override_font_sizes/font_size = 14
-theme_override_colors/font_color = Color(1.0, 0.9, 0.1, 0.7)
+text = "FREE COIN!"

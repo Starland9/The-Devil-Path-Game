@@ -2,16 +2,10 @@
 
 [ext_resource type="Script" uid="uid://b5448x1onumxn" path="res://scripts/level/level_base.gd" id="1_base"]
 [ext_resource type="Script" uid="uid://cgjyd6ijpyv3j" path="res://scripts/level/components/hidden_key.gd" id="2_hk"]
-[ext_resource type="PackedScene" uid="uid://b1hud" path="res://scenes/hud.tscn" id="3_hud"]
-
-[sub_resource type="RectangleShape2D" id="Rect_exit"]
-size = Vector2(40, 64)
+[ext_resource type="PackedScene" uid="uid://cjffm3nbdsdcs" path="res://scenes/prefabs/exit/exit.tscn" id="3_bpgow"]
 
 [sub_resource type="RectangleShape2D" id="Rect_key"]
 size = Vector2(28, 28)
-
-[sub_resource type="RectangleShape2D" id="Rect_death"]
-size = Vector2(2000, 40)
 
 [sub_resource type="RectangleShape2D" id="Rect_floor"]
 size = Vector2(1280, 40)
@@ -26,25 +20,13 @@ size = Vector2(24, 160)
 script = ExtResource("1_base")
 level_id = 10
 next_level_scene = "res://scenes/levels/level_11.tscn"
+title = "First Rage"
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=894695446]
 position = Vector2(120, 520)
 
-[node name="HUD" parent="." unique_id=1565207055 instance=ExtResource("3_hud")]
-
-[node name="Exit" type="Area2D" parent="." unique_id=1685448050]
-position = Vector2(1160, 520)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit" unique_id=1005241540]
-position = Vector2(0, -31)
-shape = SubResource("Rect_exit")
-disabled = true
-
-[node name="ExitVisual" type="ColorRect" parent="Exit" unique_id=287943751]
-offset_left = -20.0
-offset_top = -64.0
-offset_right = 20.0
-color = Color(0.1, 0.9, 0.3, 1)
+[node name="Exit" parent="." unique_id=2023957119 instance=ExtResource("3_bpgow")]
+position = Vector2(1230, 530)
 
 [node name="HiddenKey" type="Node2D" parent="." unique_id=106517280]
 script = ExtResource("2_hk")
@@ -64,15 +46,11 @@ offset_bottom = 14.0
 color = Color(0.9, 0.8, 0.1, 1)
 
 [node name="LockVisual" type="ColorRect" parent="HiddenKey" unique_id=1227608999]
-offset_right = 40.0
-offset_bottom = 64.0
+offset_left = 1210.0
+offset_top = 495.0
+offset_right = 1250.0
+offset_bottom = 559.0
 color = Color(0.9, 0.1, 0.1, 0.75)
-
-[node name="DeathZone" type="Area2D" parent="." unique_id=253391032]
-position = Vector2(640, 740)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone" unique_id=269980033]
-shape = SubResource("Rect_death")
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=954890017]
 position = Vector2(640, 580)
@@ -101,7 +79,8 @@ offset_bottom = 12.0
 color = Color(0.35, 0.35, 0.4, 1)
 
 [node name="ConcealWall" type="StaticBody2D" parent="." unique_id=343440507]
-position = Vector2(840, 310)
+visible = false
+position = Vector2(832, 297)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ConcealWall" unique_id=40507413]
 shape = SubResource("Rect_wall")
@@ -112,12 +91,3 @@ offset_top = -80.0
 offset_right = 12.0
 offset_bottom = 80.0
 color = Color(0.25, 0.25, 0.28, 1)
-
-[node name="LevelTitle" type="Label" parent="." unique_id=1150078662]
-offset_left = 40.0
-offset_top = 40.0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 0.4)
-theme_override_font_sizes/font_size = 24
-text = "FIRST RAGE"

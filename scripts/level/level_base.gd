@@ -5,14 +5,17 @@ class_name LevelBase
 @export var next_level_scene: String = ""
 ## Override in derived levels to apply mobile hitbox expansion
 @export var has_precision_platforms: bool = false
+@export_multiline("title") var title: String = ""
 
 @onready var spawn_point: Marker2D    = $SpawnPoint
 @onready var exit_area: Area2D        = $Exit
-@onready var death_zone: Area2D       = $DeathZone
-@onready var hud_layer: CanvasLayer   = $HUD
 
+const death_zone_scene := preload("res://scenes/prefabs/death_zone.tscn")
+const hud_scene := preload("res://scenes/hud.tscn")
+
+var hud_layer : CanvasLayer
 var _gs: Node
-var _player: CharacterBody2D
+var _player: Player
 var _death_count: int = 0
 var _timer: float = 0.0
 var _active: bool = true
@@ -24,16 +27,33 @@ func _ready() -> void:
 	_apply_mobile_hitboxes()
 	_spawn_player()
 	exit_area.body_entered.connect(_on_exit_entered)
+	
+	var death_zone = death_zone_scene.instantiate()
+	add_child(death_zone)
 	death_zone.body_entered.connect(_on_death_zone_entered)
+	
+	hud_layer = hud_scene.instantiate()
+	add_child(hud_layer)
 	if hud_layer != null and hud_layer.has_signal("skip_requested"):
 		hud_layer.connect("skip_requested", Callable(self, "_on_skip_requested"))
 	_hud_call("set_level_name", "LEVEL %02d" % level_id)
 	_hud_call("update_deaths", _death_count)
+	_add_level_title()
+
 
 func _process(delta: float) -> void:
 	if _active:
 		_timer += delta
 		_hud_call("update_timer", _timer)
+		
+func _add_level_title():
+	var label := Label.new()
+	label.text = title.to_upper()
+	add_child(label)
+	label.position = Vector2(85, 30)
+	label.add_theme_color_override("font_color", Color(.50, .50, .50, .40))
+	label.add_theme_font_size_override("font_size", 24)
+	
 
 func _spawn_player() -> void:
 	var scene := load("res://scenes/player.tscn") as PackedScene
@@ -52,7 +72,7 @@ func _on_player_died() -> void:
 		sfx.play("death")
 	_hud_call("update_deaths", _death_count)
 	_hud_call("flash_death")
-	await get_tree().create_timer(0.05).timeout
+	await get_tree().create_timer(0.01).timeout
 	_reset_troll_components()
 	_player.respawn(spawn_point.global_position)
 

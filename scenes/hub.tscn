@@ -1,38 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1hub"]
+[gd_scene format=3 uid="uid://b1hub"]
 
-[ext_resource type="Script" path="res://scripts/ui/hub_ui.gd" id="1_hub"]
+[ext_resource type="Script" uid="uid://cmd8yxywjrhpj" path="res://scripts/ui/hub_ui.gd" id="1_hub"]
 
-[node name="Hub" type="CanvasLayer"]
+[node name="Hub" type="CanvasLayer" unique_id=2124405640]
 script = ExtResource("1_hub")
 
-[node name="Root" type="Control" parent="."]
+[node name="Root" type="Control" parent="." unique_id=955741607]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Background" type="ColorRect" parent="Root"]
-anchors_preset = 15
+[node name="Background" type="ColorRect" parent="Root" unique_id=1082794564]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color(0.05, 0.03, 0.03, 1)
 
-[node name="TitleLabel" type="Label" parent="Root"]
-anchors_preset = 1
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 24.0
-offset_right = 1280.0
-offset_bottom = 72.0
+[node name="TitleLabel" type="Label" parent="Root" unique_id=1193482945]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 71.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.9, 0.1, 0.1, 1)
+theme_override_font_sizes/font_size = 32
 text = "SELECT LEVEL"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 32
-theme_override_colors/font_color = Color(0.9, 0.1, 0.1, 1)
+vertical_alignment = 1
 
-[node name="Scroll" type="ScrollContainer" parent="Root"]
-anchors_preset = 15
+[node name="Scroll" type="ScrollContainer" parent="Root" unique_id=1134190407]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 32.0
@@ -40,16 +40,15 @@ offset_top = 88.0
 offset_right = -32.0
 offset_bottom = -80.0
 
-[node name="Grid" type="GridContainer" parent="Root/Scroll"]
-columns = 10
+[node name="Grid" type="GridContainer" parent="Root/Scroll" unique_id=1137510231]
+layout_mode = 2
 theme_override_constants/h_separation = 12
 theme_override_constants/v_separation = 12
+columns = 10
 
-[node name="BackButton" type="Button" parent="Root"]
-anchors_preset = 3
-anchor_left = 0.0
+[node name="BackButton" type="Button" parent="Root" unique_id=1286828034]
+layout_mode = 0
 anchor_top = 1.0
-anchor_right = 0.0
 anchor_bottom = 1.0
 offset_left = 32.0
 offset_top = -64.0

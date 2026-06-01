@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b1level27"]
 
-[ext_resource type="Script" path="res://scripts/level/level_base.gd" id="1_base"]
-[ext_resource type="Script" path="res://scripts/level/components/patrol_spike.gd" id="2_ps"]
-[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="3_hud"]
+[ext_resource type="Script" uid="uid://b5448x1onumxn" path="res://scripts/level/level_base.gd" id="1_base"]
+[ext_resource type="Script" uid="uid://cvw1ujlfyvf1l" path="res://scripts/level/components/patrol_spike.gd" id="2_ps"]
+[ext_resource type="PackedScene" uid="uid://cjffm3nbdsdcs" path="res://scenes/prefabs/exit/exit.tscn" id="3_l6y6h"]
 
 [sub_resource type="RectangleShape2D" id="Rect_floor"]
 size = Vector2(1280, 40)
@@ -13,130 +13,247 @@ size = Vector2(240, 28)
 [sub_resource type="RectangleShape2D" id="Rect_spike"]
 size = Vector2(24, 40)
 
-[sub_resource type="RectangleShape2D" id="Rect_exit"]
-size = Vector2(40, 64)
-
-[sub_resource type="RectangleShape2D" id="Rect_death"]
-size = Vector2(2000, 40)
-
-[node name="Level27" type="Node2D"]
+[node name="Level27" type="Node2D" unique_id=1959240106]
 script = ExtResource("1_base")
 level_id = 27
 next_level_scene = "res://scenes/levels/level_28.tscn"
+title = "Hidden Gravity
+"
 
-[node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(120, 540)
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1669259566]
+position = Vector2(994, 503)
 
-[node name="HUD" parent="." instance=ExtResource("3_hud")]
+[node name="Exit" parent="." unique_id=2023957119 instance=ExtResource("3_l6y6h")]
+position = Vector2(29, 501)
 
-[node name="Exit" type="Area2D" parent="."]
-position = Vector2(1160, 395)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
-shape = SubResource("Rect_exit")
-
-[node name="ExitVisual" type="ColorRect" parent="Exit"]
-offset_left = -20.0
-offset_top = -64.0
-offset_right = 20.0
-offset_bottom = 0.0
-color = Color(0.1, 0.9, 0.3, 1)
-
-[node name="DeathZone" type="Area2D" parent="."]
-position = Vector2(640, 760)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
-shape = SubResource("Rect_death")
-
-[node name="Floor" type="StaticBody2D" parent="."]
+[node name="Floor" type="StaticBody2D" parent="." unique_id=733735107]
 position = Vector2(640, 580)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=755247875]
 shape = SubResource("Rect_floor")
 
-[node name="Visual" type="ColorRect" parent="Floor"]
+[node name="Visual" type="ColorRect" parent="Floor" unique_id=2131637518]
 offset_left = -640.0
 offset_top = -20.0
 offset_right = 640.0
 offset_bottom = 20.0
 color = Color(0.25, 0.25, 0.28, 1)
 
-[node name="Platform1" type="StaticBody2D" parent="."]
+[node name="Platform1" type="StaticBody2D" parent="." unique_id=1479495523]
 position = Vector2(800, 470)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1" unique_id=78537877]
 shape = SubResource("Rect_plat")
 
-[node name="Visual" type="ColorRect" parent="Platform1"]
+[node name="Visual" type="ColorRect" parent="Platform1" unique_id=1040441588]
 offset_left = -120.0
 offset_top = -14.0
 offset_right = 120.0
 offset_bottom = 14.0
 color = Color(0.25, 0.25, 0.28, 1)
 
-[node name="Platform2" type="StaticBody2D" parent="."]
+[node name="Platform2" type="StaticBody2D" parent="." unique_id=1614353004]
 position = Vector2(1140, 440)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2" unique_id=1649067047]
 shape = SubResource("Rect_plat")
 
-[node name="Visual" type="ColorRect" parent="Platform2"]
+[node name="Visual" type="ColorRect" parent="Platform2" unique_id=2120742822]
 offset_left = -120.0
 offset_top = -14.0
 offset_right = 120.0
 offset_bottom = 14.0
 color = Color(0.25, 0.25, 0.28, 1)
 
-[node name="Spike1" type="Node2D" parent="."]
+[node name="Platform3" type="StaticBody2D" parent="." unique_id=778697513]
+position = Vector2(843, 329)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3" unique_id=1544677399]
+shape = SubResource("Rect_plat")
+
+[node name="Visual" type="ColorRect" parent="Platform3" unique_id=138237562]
+offset_left = -120.0
+offset_top = -14.0
+offset_right = 120.0
+offset_bottom = 14.0
+color = Color(0.25, 0.25, 0.28, 1)
+
+[node name="Platform4" type="StaticBody2D" parent="." unique_id=1726130733]
+position = Vector2(835, 62)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform4" unique_id=163524119]
+shape = SubResource("Rect_plat")
+
+[node name="Visual" type="ColorRect" parent="Platform4" unique_id=1773198372]
+offset_left = -120.0
+offset_top = -14.0
+offset_right = 120.0
+offset_bottom = 14.0
+color = Color(0.25, 0.25, 0.28, 1)
+
+[node name="Platform5" type="StaticBody2D" parent="." unique_id=908718898]
+position = Vector2(588, 335)
+rotation = -1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform5" unique_id=1658431918]
+shape = SubResource("Rect_plat")
+
+[node name="Visual" type="ColorRect" parent="Platform5" unique_id=395113066]
+offset_left = -120.0
+offset_top = -14.0
+offset_right = 120.0
+offset_bottom = 14.0
+color = Color(0.25, 0.25, 0.28, 1)
+
+[node name="Platform6" type="StaticBody2D" parent="." unique_id=889665932]
+position = Vector2(109, 370)
+rotation = -1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform6" unique_id=1543538751]
+shape = SubResource("Rect_plat")
+
+[node name="Visual" type="ColorRect" parent="Platform6" unique_id=1112467467]
+offset_left = -120.0
+offset_top = -14.0
+offset_right = 120.0
+offset_bottom = 14.0
+color = Color(0.25, 0.25, 0.28, 1)
+
+[node name="Platform7" type="StaticBody2D" parent="." unique_id=1427328900]
+position = Vector2(120, 545)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform7" unique_id=131674989]
+shape = SubResource("Rect_plat")
+
+[node name="Visual" type="ColorRect" parent="Platform7" unique_id=852749686]
+offset_left = -120.0
+offset_top = -14.0
+offset_right = 120.0
+offset_bottom = 14.0
+color = Color(0.25, 0.25, 0.28, 1)
+
+[node name="Spike1" type="Node2D" parent="." unique_id=1482428812]
 position = Vector2(360, 560)
 script = ExtResource("2_ps")
 patrol_range = 180.0
 speed = 130.0
 
-[node name="Visual" type="ColorRect" parent="Spike1"]
+[node name="Visual" type="ColorRect" parent="Spike1" unique_id=1252395482]
 offset_left = -12.0
 offset_top = -40.0
 offset_right = 12.0
-offset_bottom = 0.0
 color = Color(0.85, 0.1, 0.1, 1)
 
-[node name="KillArea" type="Area2D" parent="Spike1"]
+[node name="KillArea" type="Area2D" parent="Spike1" unique_id=295052737]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike1/KillArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike1/KillArea" unique_id=573930811]
+position = Vector2(0, -20)
 shape = SubResource("Rect_spike")
 
-[node name="Spike2" type="Node2D" parent="."]
+[node name="Spike2" type="Node2D" parent="." unique_id=1786991745]
 position = Vector2(700, 560)
 script = ExtResource("2_ps")
 patrol_range = 160.0
 speed = 160.0
 
-[node name="Visual" type="ColorRect" parent="Spike2"]
+[node name="Visual" type="ColorRect" parent="Spike2" unique_id=1897026870]
 offset_left = -12.0
 offset_top = -40.0
 offset_right = 12.0
-offset_bottom = 0.0
 color = Color(0.85, 0.1, 0.1, 1)
 
-[node name="KillArea" type="Area2D" parent="Spike2"]
+[node name="KillArea" type="Area2D" parent="Spike2" unique_id=2043674551]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike2/KillArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike2/KillArea" unique_id=445023749]
+position = Vector2(0, -20)
 shape = SubResource("Rect_spike")
 
-[node name="Spike3" type="Node2D" parent="."]
-position = Vector2(900, 480)
+[node name="Spike3" type="Node2D" parent="." unique_id=1223140120]
+position = Vector2(896, 456)
 script = ExtResource("2_ps")
 patrol_range = 120.0
 speed = 145.0
 
-[node name="Visual" type="ColorRect" parent="Spike3"]
+[node name="Visual" type="ColorRect" parent="Spike3" unique_id=1327323316]
 offset_left = -12.0
 offset_top = -40.0
 offset_right = 12.0
-offset_bottom = 0.0
 color = Color(0.85, 0.1, 0.1, 1)
 
-[node name="KillArea" type="Area2D" parent="Spike3"]
+[node name="KillArea" type="Area2D" parent="Spike3" unique_id=989035466]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike3/KillArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike3/KillArea" unique_id=1060580239]
+position = Vector2(0, -19)
+shape = SubResource("Rect_spike")
+
+[node name="Spike4" type="Node2D" parent="." unique_id=1311686557]
+position = Vector2(844, 204)
+script = ExtResource("2_ps")
+patrol_range = 120.0
+speed = 145.0
+
+[node name="Visual" type="ColorRect" parent="Spike4" unique_id=101393260]
+offset_left = -12.0
+offset_top = -40.0
+offset_right = 12.0
+color = Color(0.85, 0.1, 0.1, 1)
+
+[node name="KillArea" type="Area2D" parent="Spike4" unique_id=526061868]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike4/KillArea" unique_id=1895803523]
+position = Vector2(0, -19)
+shape = SubResource("Rect_spike")
+
+[node name="Spike5" type="Node2D" parent="." unique_id=538404374]
+position = Vector2(217, 192)
+script = ExtResource("2_ps")
+patrol_range = 120.0
+speed = 145.0
+
+[node name="Visual" type="ColorRect" parent="Spike5" unique_id=1390889998]
+offset_left = -12.0
+offset_top = -40.0
+offset_right = 12.0
+color = Color(0.85, 0.1, 0.1, 1)
+
+[node name="KillArea" type="Area2D" parent="Spike5" unique_id=2130519396]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike5/KillArea" unique_id=434181287]
+position = Vector2(0, -19)
+shape = SubResource("Rect_spike")
+
+[node name="Spike6" type="Node2D" parent="." unique_id=1251739466]
+position = Vector2(1180, 511)
+script = ExtResource("2_ps")
+patrol_range = 120.0
+speed = 145.0
+
+[node name="Visual" type="ColorRect" parent="Spike6" unique_id=973405587]
+offset_left = -12.0
+offset_top = -40.0
+offset_right = 12.0
+color = Color(0.85, 0.1, 0.1, 1)
+
+[node name="KillArea" type="Area2D" parent="Spike6" unique_id=780059788]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike6/KillArea" unique_id=1497774515]
+position = Vector2(0, -19)
+shape = SubResource("Rect_spike")
+
+[node name="Spike7" type="Node2D" parent="." unique_id=124347221]
+position = Vector2(158, 513)
+script = ExtResource("2_ps")
+patrol_range = 120.0
+speed = 145.0
+
+[node name="Visual" type="ColorRect" parent="Spike7" unique_id=492336953]
+offset_left = -12.0
+offset_top = -40.0
+offset_right = 12.0
+color = Color(0.85, 0.1, 0.1, 1)
+
+[node name="KillArea" type="Area2D" parent="Spike7" unique_id=966504760]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike7/KillArea" unique_id=677861305]
+position = Vector2(0, -19)
 shape = SubResource("Rect_spike")

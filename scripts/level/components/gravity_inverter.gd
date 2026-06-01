@@ -10,8 +10,8 @@ class_name GravityInverter
 var _player: Node = null
 var _timer: float = 0.0
 var _active: bool = false
-
-func _ready() -> void:
+  
+func _ready() -> void:  
 	# Watch for jump input — hook into process
 	pass
 
@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 		return
 
 	# Detect jump just pressed
-	if Input.is_action_just_pressed("jump") and _player.is_on_floor():
+	if Input.is_action_just_pressed("jump") and not _player.is_on_floor():
 		_troll_activate()
 
 	if _active:
@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 func _troll_activate() -> void:
 	if _active:
 		return
-	_active = true
+	_active = true 
 	_timer = invert_duration
 	if _player.has_method("set") and "gravity_multiplier" in _player:
 		_player.gravity_multiplier = -1.0

@@ -1,11 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://b1level01"]
+[gd_scene format=3 uid="uid://b1level01"]
 
-[ext_resource type="Script" path="res://scripts/level/level_base.gd" id="1_base"]
-[ext_resource type="Script" path="res://scripts/level/components/widening_pit.gd" id="2_pit"]
-[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="3_hud"]
-
-[sub_resource type="RectangleShape2D" id="Rect_floor"]
-size = Vector2(2000, 40)
+[ext_resource type="Script" uid="uid://b5448x1onumxn" path="res://scripts/level/level_base.gd" id="1_base"]
+[ext_resource type="Script" uid="uid://cass7ndqx3xaw" path="res://scripts/level/components/widening_pit.gd" id="2_pit"]
+[ext_resource type="PackedScene" uid="uid://cjffm3nbdsdcs" path="res://scenes/prefabs/exit/exit.tscn" id="3_uvc87"]
+[ext_resource type="Script" uid="uid://70t8jbrblcmh" path="res://scripts/level/components/plateform_visual.gd" id="5_50wog"]
 
 [sub_resource type="RectangleShape2D" id="Rect_plat_left"]
 size = Vector2(380, 32)
@@ -20,123 +18,82 @@ size = Vector2(32, 200)
 size = Vector2(32, 200)
 
 [sub_resource type="RectangleShape2D" id="Rect_trigger"]
-size = Vector2(160, 300)
+size = Vector2(217, 300)
 
-[sub_resource type="RectangleShape2D" id="Rect_exit"]
-size = Vector2(40, 64)
-
-[sub_resource type="RectangleShape2D" id="Rect_death"]
-size = Vector2(2000, 40)
-
-[node name="Level01" type="Node2D"]
+[node name="Level01" type="Node2D" unique_id=898840536]
 script = ExtResource("1_base")
-level_id = 1
 next_level_scene = "res://scenes/levels/level_02.tscn"
+title = "THE LIE"
 
-[node name="SpawnPoint" type="Marker2D" parent="."]
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1895282937]
 position = Vector2(120, 500)
 
-[node name="HUD" parent="." instance=ExtResource("3_hud")]
-
-[node name="Exit" type="Area2D" parent="."]
+[node name="Exit" parent="." unique_id=2023957119 instance=ExtResource("3_uvc87")]
 position = Vector2(1160, 500)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
-shape = SubResource("Rect_exit")
-
-[node name="ExitVisual" type="ColorRect" parent="Exit"]
-offset_left = -20.0
-offset_top = -64.0
-offset_right = 20.0
-offset_bottom = 0.0
-color = Color(0.1, 0.9, 0.3, 1)
-
-[node name="DeathZone" type="Area2D" parent="."]
-position = Vector2(640, 720)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
-shape = SubResource("Rect_death")
-
-[node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(640, 580)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-shape = SubResource("Rect_floor")
-
-[node name="Visual" type="ColorRect" parent="Floor"]
-offset_left = -1000.0
-offset_top = -20.0
-offset_right = 1000.0
-offset_bottom = 20.0
-color = Color(0.25, 0.25, 0.28, 1)
-
-[node name="PlatformLeft" type="StaticBody2D" parent="."]
+[node name="PlatformLeft" type="StaticBody2D" parent="." unique_id=1792055769]
 position = Vector2(230, 548)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformLeft"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformLeft" unique_id=1246705036]
 shape = SubResource("Rect_plat_left")
 
-[node name="Visual" type="ColorRect" parent="PlatformLeft"]
+[node name="Visual" type="ColorRect" parent="PlatformLeft" unique_id=1088698676]
 offset_left = -190.0
 offset_top = -16.0
 offset_right = 190.0
 offset_bottom = 16.0
-color = Color(0.25, 0.25, 0.28, 1)
+script = ExtResource("5_50wog")
+metadata/_custom_type_script = "uid://70t8jbrblcmh"
 
-[node name="PlatformRight" type="StaticBody2D" parent="."]
+[node name="PlatformRight" type="StaticBody2D" parent="." unique_id=839237379]
 position = Vector2(1050, 548)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformRight"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformRight" unique_id=1821073603]
 shape = SubResource("Rect_plat_right")
 
-[node name="Visual" type="ColorRect" parent="PlatformRight"]
+[node name="Visual" type="ColorRect" parent="PlatformRight" unique_id=273702872]
 offset_left = -190.0
 offset_top = -16.0
 offset_right = 190.0
 offset_bottom = 16.0
-color = Color(0.25, 0.25, 0.28, 1)
+script = ExtResource("5_50wog")
+metadata/_custom_type_script = "uid://70t8jbrblcmh"
 
-[node name="WideningPit" type="Node2D" parent="."]
+[node name="WideningPit" type="Node2D" parent="." unique_id=1669783642]
 position = Vector2(640, 548)
 script = ExtResource("2_pit")
-widen_amount = 96.0
-widen_speed = 180.0
 
-[node name="LeftWall" type="StaticBody2D" parent="WideningPit"]
+[node name="LeftWall" type="StaticBody2D" parent="WideningPit" unique_id=2143187060]
 position = Vector2(-80, 80)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WideningPit/LeftWall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WideningPit/LeftWall" unique_id=32482893]
 shape = SubResource("Rect_wall_left")
 
-[node name="Visual" type="ColorRect" parent="WideningPit/LeftWall"]
+[node name="Visual" type="ColorRect" parent="WideningPit/LeftWall" unique_id=1868365516]
 offset_left = -16.0
 offset_top = -100.0
 offset_right = 16.0
 offset_bottom = 100.0
-color = Color(0.15, 0.15, 0.18, 1)
+script = ExtResource("5_50wog")
+metadata/_custom_type_script = "uid://70t8jbrblcmh"
 
-[node name="RightWall" type="StaticBody2D" parent="WideningPit"]
+[node name="RightWall" type="StaticBody2D" parent="WideningPit" unique_id=1306586783]
 position = Vector2(80, 80)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WideningPit/RightWall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WideningPit/RightWall" unique_id=32885636]
 shape = SubResource("Rect_wall_right")
 
-[node name="Visual" type="ColorRect" parent="WideningPit/RightWall"]
+[node name="Visual" type="ColorRect" parent="WideningPit/RightWall" unique_id=24364063]
 offset_left = -16.0
 offset_top = -100.0
 offset_right = 16.0
 offset_bottom = 100.0
-color = Color(0.15, 0.15, 0.18, 1)
+script = ExtResource("5_50wog")
+metadata/_custom_type_script = "uid://70t8jbrblcmh"
 
-[node name="TriggerZone" type="Area2D" parent="WideningPit"]
+[node name="TriggerZone" type="Area2D" parent="WideningPit" unique_id=1218381431]
 position = Vector2(0, -80)
-collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WideningPit/TriggerZone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WideningPit/TriggerZone" unique_id=275746698]
+position = Vector2(0.5, 0)
 shape = SubResource("Rect_trigger")
-
-[node name="LevelTitle" type="Label" parent="."]
-position = Vector2(40, 40)
-text = "THE LIE"
-theme_override_font_sizes/font_size = 24
-theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 0.4)

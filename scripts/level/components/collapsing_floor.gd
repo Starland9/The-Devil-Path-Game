@@ -12,9 +12,12 @@ class_name CollapsingFloor
 
 var _collapsing: bool = false
 var _origin_y: float  = 0.0
+var _origin_disabled : bool
 
 func _ready() -> void:
+	fall_speed = randf_range(200, 600)
 	_origin_y = position.y
+	_origin_disabled = col.disabled
 	var area := $TriggerArea as Area2D
 	area.body_entered.connect(_on_body_entered)
 
@@ -34,6 +37,6 @@ func _process(delta: float) -> void:
 
 func _troll_reset() -> void:
 	_collapsing = false
-	col.disabled = false
+	col.disabled = _origin_disabled
 	position.y = _origin_y
 	visual.modulate.a = 1.0

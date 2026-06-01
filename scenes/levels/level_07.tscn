@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b1level07"]
 
-[ext_resource type="Script" path="res://scripts/level/level_base.gd" id="1_base"]
-[ext_resource type="Script" path="res://scripts/level/components/gravity_inverter.gd" id="2_gi"]
-[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="3_hud"]
+[ext_resource type="Script" uid="uid://b5448x1onumxn" path="res://scripts/level/level_base.gd" id="1_base"]
+[ext_resource type="Script" uid="uid://btcfovna1ppfo" path="res://scripts/level/components/gravity_inverter.gd" id="2_gi"]
+[ext_resource type="PackedScene" uid="uid://cjffm3nbdsdcs" path="res://scenes/prefabs/exit/exit.tscn" id="2_rxvob"]
 
 [sub_resource type="RectangleShape2D" id="Rect_floor"]
 size = Vector2(1280, 40)
@@ -10,95 +10,68 @@ size = Vector2(1280, 40)
 [sub_resource type="RectangleShape2D" id="Rect_ceil"]
 size = Vector2(1280, 40)
 
-[sub_resource type="RectangleShape2D" id="Rect_exit"]
-size = Vector2(40, 64)
-
-[sub_resource type="RectangleShape2D" id="Rect_death"]
-size = Vector2(2000, 40)
-
 [sub_resource type="RectangleShape2D" id="Rect_plat"]
 size = Vector2(160, 24)
 
-[node name="Level07" type="Node2D"]
+[node name="Level07" type="Node2D" unique_id=1792844888]
 script = ExtResource("1_base")
 level_id = 7
 next_level_scene = "res://scenes/levels/level_08.tscn"
+title = "Reverse Jump"
 
-[node name="SpawnPoint" type="Marker2D" parent="."]
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1560363594]
 position = Vector2(120, 520)
 
-[node name="HUD" parent="." instance=ExtResource("3_hud")]
+[node name="Exit" parent="." unique_id=2023957119 instance=ExtResource("2_rxvob")]
+position = Vector2(1150, 132)
 
-[node name="GravityInverter" type="Area2D" parent="."]
+[node name="GravityInverter" type="Node2D" parent="." unique_id=130062119]
 script = ExtResource("2_gi")
-invert_duration = 2.0
 
-[node name="Exit" type="Area2D" parent="."]
-position = Vector2(1160, 140)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
-shape = SubResource("Rect_exit")
-
-[node name="ExitVisual" type="ColorRect" parent="Exit"]
-offset_left = -20.0
-offset_top = -64.0
-offset_right = 20.0
-offset_bottom = 0.0
-color = Color(0.1, 0.9, 0.3, 1)
-
-[node name="DeathZone" type="Area2D" parent="."]
-position = Vector2(640, 740)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
-shape = SubResource("Rect_death")
-
-[node name="Floor" type="StaticBody2D" parent="."]
+[node name="Floor" type="StaticBody2D" parent="." unique_id=1013133872]
 position = Vector2(640, 580)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1071435029]
 shape = SubResource("Rect_floor")
 
-[node name="Visual" type="ColorRect" parent="Floor"]
+[node name="Visual" type="ColorRect" parent="Floor" unique_id=1040085]
 offset_left = -640.0
 offset_top = -20.0
 offset_right = 640.0
 offset_bottom = 20.0
 color = Color(0.25, 0.25, 0.28, 1)
 
-[node name="Ceiling" type="StaticBody2D" parent="."]
+[node name="Ceiling" type="StaticBody2D" parent="." unique_id=832132473]
 position = Vector2(640, 80)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling" unique_id=1909512694]
 shape = SubResource("Rect_ceil")
 
-[node name="Visual" type="ColorRect" parent="Ceiling"]
+[node name="Visual" type="ColorRect" parent="Ceiling" unique_id=2100472656]
 offset_left = -640.0
 offset_top = -20.0
 offset_right = 640.0
 offset_bottom = 20.0
 color = Color(0.25, 0.25, 0.28, 1)
 
-[node name="PlatformMid" type="StaticBody2D" parent="."]
+[node name="PlatformMid" type="StaticBody2D" parent="." unique_id=1090577782]
 position = Vector2(640, 330)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformMid"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformMid" unique_id=718935701]
 shape = SubResource("Rect_plat")
 
-[node name="Visual" type="ColorRect" parent="PlatformMid"]
+[node name="Visual" type="ColorRect" parent="PlatformMid" unique_id=791097428]
 offset_left = -80.0
 offset_top = -12.0
 offset_right = 80.0
 offset_bottom = 12.0
 color = Color(0.35, 0.35, 0.4, 1)
 
-[node name="HintLabel" type="Label" parent="."]
-position = Vector2(40, 300)
-text = "Jump = gravity flip?"
-theme_override_font_sizes/font_size = 16
+[node name="HintLabel" type="Label" parent="." unique_id=381420372]
+offset_left = 40.0
+offset_top = 300.0
+offset_right = 40.0
+offset_bottom = 300.0
 theme_override_colors/font_color = Color(0.7, 0.4, 0.1, 0.5)
-
-[node name="LevelTitle" type="Label" parent="."]
-position = Vector2(40, 40)
-text = "REVERSE JUMP"
-theme_override_font_sizes/font_size = 24
-theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 0.4)
+theme_override_font_sizes/font_size = 16
+text = "Jump = gravity flip?"

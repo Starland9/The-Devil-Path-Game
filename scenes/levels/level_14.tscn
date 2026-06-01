@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b1level14"]
 
-[ext_resource type="Script" path="res://scripts/level/level_base.gd" id="1_base"]
-[ext_resource type="Script" path="res://scripts/level/components/control_reverser.gd" id="2_cr"]
-[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="3_hud"]
+[ext_resource type="Script" uid="uid://b5448x1onumxn" path="res://scripts/level/level_base.gd" id="1_base"]
+[ext_resource type="Script" uid="uid://vnqi0os3j3ql" path="res://scripts/level/components/control_reverser.gd" id="2_cr"]
+[ext_resource type="PackedScene" uid="uid://cjffm3nbdsdcs" path="res://scenes/prefabs/exit/exit.tscn" id="2_g3nt1"]
 
 [sub_resource type="RectangleShape2D" id="Rect_floor"]
 size = Vector2(1280, 40)
@@ -10,64 +10,41 @@ size = Vector2(1280, 40)
 [sub_resource type="RectangleShape2D" id="Rect_plat"]
 size = Vector2(240, 28)
 
-[sub_resource type="RectangleShape2D" id="Rect_exit"]
-size = Vector2(40, 64)
-
-[sub_resource type="RectangleShape2D" id="Rect_death"]
-size = Vector2(2000, 40)
-
-[node name="Level14" type="Node2D"]
+[node name="Level14" type="Node2D" unique_id=273805878]
 script = ExtResource("1_base")
 level_id = 14
 next_level_scene = "res://scenes/levels/level_15.tscn"
+title = "Mirror World"
 
-[node name="SpawnPoint" type="Marker2D" parent="."]
+[node name="Exit" parent="." unique_id=2023957119 instance=ExtResource("2_g3nt1")]
+position = Vector2(1002, 394)
+
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1837768954]
 position = Vector2(200, 540)
 
-[node name="HUD" parent="." instance=ExtResource("3_hud")]
-
-[node name="ControlReverser" type="Node" parent="."]
+[node name="ControlReverser" type="Node" parent="." unique_id=34543581]
 script = ExtResource("2_cr")
 
-[node name="Exit" type="Area2D" parent="."]
-position = Vector2(1060, 390)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
-shape = SubResource("Rect_exit")
-
-[node name="ExitVisual" type="ColorRect" parent="Exit"]
-offset_left = -20.0
-offset_top = -64.0
-offset_right = 20.0
-offset_bottom = 0.0
-color = Color(0.1, 0.9, 0.3, 1)
-
-[node name="DeathZone" type="Area2D" parent="."]
-position = Vector2(640, 760)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
-shape = SubResource("Rect_death")
-
-[node name="Floor" type="StaticBody2D" parent="."]
+[node name="Floor" type="StaticBody2D" parent="." unique_id=991186212]
 position = Vector2(640, 580)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1405922955]
 shape = SubResource("Rect_floor")
 
-[node name="Visual" type="ColorRect" parent="Floor"]
+[node name="Visual" type="ColorRect" parent="Floor" unique_id=1685180966]
 offset_left = -640.0
 offset_top = -20.0
 offset_right = 640.0
 offset_bottom = 20.0
 color = Color(0.25, 0.25, 0.28, 1)
 
-[node name="Platform" type="StaticBody2D" parent="."]
+[node name="Platform" type="StaticBody2D" parent="." unique_id=938538008]
 position = Vector2(1000, 440)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=928152305]
 shape = SubResource("Rect_plat")
 
-[node name="Visual" type="ColorRect" parent="Platform"]
+[node name="Visual" type="ColorRect" parent="Platform" unique_id=304335952]
 offset_left = -120.0
 offset_top = -14.0
 offset_right = 120.0
