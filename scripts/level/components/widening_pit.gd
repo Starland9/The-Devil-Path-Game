@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 	if not _widening:
 		return
 	left_wall.position.x  = move_toward(left_wall.position.x,  _target_left_x,  widen_speed * delta)
-	right_wall.position.x = move_toward(right_wall.position.x, _target_right_x, widen_speed * delta)
+	#right_wall.position.x = move_toward(right_wall.position.x, _target_right_x, widen_speed * delta)
 
 func _on_trigger_entered(body: Node) -> void:
 	if body is CharacterBody2D and not body.is_on_floor():

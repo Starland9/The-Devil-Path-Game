@@ -18,7 +18,6 @@ func _ready() -> void:
 	
 func _resize_grid():
 	var w := scroll.size.x
-	
 	grid.columns = int(w / (64 + grid.get_theme_constant("h_separation")))
 
 func _populate() -> void:

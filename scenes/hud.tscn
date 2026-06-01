@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://b1hud"]
+[gd_scene format=3 uid="uid://b1hud"]
 
-[ext_resource type="Script" path="res://scripts/ui/hud.gd" id="1_hud"]
+[ext_resource type="Script" uid="uid://bf5ympe6s0b50" path="res://scripts/ui/hud.gd" id="1_hud"]
 
 [sub_resource type="RectangleShape2D" id="Rect_ts_left"]
 size = Vector2(104, 104)
@@ -17,14 +17,11 @@ size = Vector2(88, 88)
 [sub_resource type="RectangleShape2D" id="Rect_ts_sprint"]
 size = Vector2(112, 64)
 
-[node name="HUD" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer" unique_id=1372372632]
 layer = 10
 script = ExtResource("1_hud")
 
-[node name="TopBar" type="HBoxContainer" parent="."]
-anchors_preset = 1
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="TopBar" type="HBoxContainer" parent="." unique_id=1039892736]
 offset_left = 12.0
 offset_top = 10.0
 offset_right = 1168.0
@@ -32,98 +29,96 @@ offset_bottom = 48.0
 grow_horizontal = 2
 size_flags_horizontal = 3
 
-[node name="DeathsLabel" type="Label" parent="TopBar"]
-text = "☠ 0"
-horizontal_alignment = 0
+[node name="DeathsLabel" type="Label" parent="TopBar" unique_id=1300477190]
+layout_mode = 2
 size_flags_horizontal = 3
+text = "☠ 0"
 
-[node name="NameLabel" type="Label" parent="TopBar"]
+[node name="NameLabel" type="Label" parent="TopBar" unique_id=1008321266]
+layout_mode = 2
+size_flags_horizontal = 3
 text = "LEVEL 01"
 horizontal_alignment = 1
-size_flags_horizontal = 3
 
-[node name="TimerLabel" type="Label" parent="TopBar"]
+[node name="TimerLabel" type="Label" parent="TopBar" unique_id=573387235]
+layout_mode = 2
+size_flags_horizontal = 3
 text = "00:00.00"
 horizontal_alignment = 2
-size_flags_horizontal = 3
 
-[node name="DeathOverlay" type="ColorRect" parent="."]
+[node name="DeathOverlay" type="ColorRect" parent="." unique_id=408149479]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color(0.8, 0.1, 0.1, 0.35)
-visible = false
 mouse_filter = 2
+color = Color(0.8, 0.1, 0.1, 0.35)
 
-[node name="Timer" type="Timer" parent="DeathOverlay"]
-one_shot = true
+[node name="Timer" type="Timer" parent="DeathOverlay" unique_id=1511191753]
 wait_time = 0.45
+one_shot = true
 
-[node name="SkipButton" type="Button" parent="."]
+[node name="SkipButton" type="Button" parent="." unique_id=1338478644]
+modulate = Color(1, 0.65, 0.2, 0.9)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0
 offset_left = -88.0
 offset_top = 10.0
 offset_right = -12.0
 offset_bottom = 40.0
 grow_horizontal = 0
-text = "SKIP"
 theme_override_font_sizes/font_size = 12
-modulate = Color(1, 0.65, 0.2, 0.9)
+text = "SKIP"
 
-[node name="MobileControls" type="Control" parent="."]
+[node name="MobileControls" type="Control" parent="." unique_id=1240393700]
 visible = false
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
 mouse_filter = 2
 
-[node name="LeftPad" type="Control" parent="MobileControls"]
-anchors_preset = 3
+[node name="LeftPad" type="Control" parent="MobileControls" unique_id=133411078]
+anchors_preset = 0
 anchor_top = 1.0
-anchor_right = 0.0
 anchor_bottom = 1.0
 offset_left = 24.0
 offset_top = -144.0
 offset_right = 264.0
 offset_bottom = -24.0
 
-[node name="LeftButton" type="Button" parent="MobileControls/LeftPad"]
-offset_left = 0.0
+[node name="LeftButton" type="Button" parent="MobileControls/LeftPad" unique_id=1220561841]
+modulate = Color(0.75, 0.75, 0.8, 0.45)
+layout_mode = 0
 offset_top = 12.0
 offset_right = 104.0
 offset_bottom = 116.0
-text = "LEFT"
-modulate = Color(0.75, 0.75, 0.8, 0.45)
 mouse_filter = 2
+text = "LEFT"
 
-[node name="RightButton" type="Button" parent="MobileControls/LeftPad"]
+[node name="RightButton" type="Button" parent="MobileControls/LeftPad" unique_id=702016488]
+modulate = Color(0.75, 0.75, 0.8, 0.45)
+layout_mode = 0
 offset_left = 120.0
 offset_top = 12.0
 offset_right = 224.0
 offset_bottom = 116.0
-text = "RIGHT"
-modulate = Color(0.75, 0.75, 0.8, 0.45)
 mouse_filter = 2
+text = "RIGHT"
 
-[node name="LeftTouch" type="TouchScreenButton" parent="MobileControls/LeftPad"]
+[node name="LeftTouch" type="TouchScreenButton" parent="MobileControls/LeftPad" unique_id=1336123227]
 position = Vector2(52, 64)
-action = "move_left"
 shape = SubResource("Rect_ts_left")
+action = "move_left"
 
-[node name="RightTouch" type="TouchScreenButton" parent="MobileControls/LeftPad"]
+[node name="RightTouch" type="TouchScreenButton" parent="MobileControls/LeftPad" unique_id=687518274]
 position = Vector2(172, 64)
-action = "move_right"
 shape = SubResource("Rect_ts_right")
+action = "move_right"
 
-[node name="RightPad" type="Control" parent="MobileControls"]
-anchors_preset = 3
+[node name="RightPad" type="Control" parent="MobileControls" unique_id=143589211]
+anchors_preset = 0
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -133,47 +128,50 @@ offset_top = -204.0
 offset_right = -24.0
 offset_bottom = -24.0
 
-[node name="JumpButton" type="Button" parent="MobileControls/RightPad"]
+[node name="JumpButton" type="Button" parent="MobileControls/RightPad" unique_id=1459391742]
+modulate = Color(0.2, 0.8, 0.35, 0.55)
+layout_mode = 0
 offset_left = 176.0
 offset_top = 12.0
 offset_right = 288.0
 offset_bottom = 124.0
-text = "JUMP"
-modulate = Color(0.2, 0.8, 0.35, 0.55)
 mouse_filter = 2
+text = "JUMP"
 
-[node name="DashButton" type="Button" parent="MobileControls/RightPad"]
+[node name="DashButton" type="Button" parent="MobileControls/RightPad" unique_id=53727939]
+modulate = Color(0.2, 0.6, 0.9, 0.55)
+layout_mode = 0
 offset_left = 56.0
 offset_top = 68.0
 offset_right = 144.0
 offset_bottom = 156.0
-text = "DASH"
-modulate = Color(0.2, 0.6, 0.9, 0.55)
 mouse_filter = 2
+text = "DASH"
 
-[node name="SprintButton" type="Button" parent="MobileControls/RightPad"]
+[node name="SprintButton" type="Button" parent="MobileControls/RightPad" unique_id=644061975]
+modulate = Color(1, 0.6, 0.15, 0.55)
+layout_mode = 0
 offset_left = 176.0
 offset_top = 136.0
 offset_right = 288.0
 offset_bottom = 200.0
-text = "SPRINT"
-modulate = Color(1, 0.6, 0.15, 0.55)
 mouse_filter = 2
+text = "SPRINT"
 
-[node name="JumpTouch" type="TouchScreenButton" parent="MobileControls/RightPad"]
+[node name="JumpTouch" type="TouchScreenButton" parent="MobileControls/RightPad" unique_id=397263787]
 position = Vector2(232, 68)
-action = "jump"
 shape = SubResource("Rect_ts_jump")
+action = "jump"
 
-[node name="DashTouch" type="TouchScreenButton" parent="MobileControls/RightPad"]
+[node name="DashTouch" type="TouchScreenButton" parent="MobileControls/RightPad" unique_id=680925554]
 position = Vector2(100, 112)
-action = "dash"
 shape = SubResource("Rect_ts_dash")
+action = "dash"
 
-[node name="SprintTouch" type="TouchScreenButton" parent="MobileControls/RightPad"]
+[node name="SprintTouch" type="TouchScreenButton" parent="MobileControls/RightPad" unique_id=1126182259]
 position = Vector2(232, 168)
-action = "sprint"
 shape = SubResource("Rect_ts_sprint")
+action = "sprint"
 
 [connection signal="timeout" from="DeathOverlay/Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="SkipButton" to="." method="_on_skip_button_pressed"]

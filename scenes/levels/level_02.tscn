@@ -1,128 +1,107 @@
 [gd_scene format=3 uid="uid://b1level02"]
 
-[ext_resource type="Script" path="res://scripts/level/level_base.gd" id="1_base"]
-[ext_resource type="Script" path="res://scripts/level/components/disappearing_platform.gd" id="2_dp"]
-[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="3_hud"]
+[ext_resource type="Script" uid="uid://b5448x1onumxn" path="res://scripts/level/level_base.gd" id="1_base"]
+[ext_resource type="Script" uid="uid://de0e2eni0s8m3" path="res://scripts/level/components/disappearing_platform.gd" id="2_dp"]
+[ext_resource type="PackedScene" uid="uid://b1hud" path="res://scenes/hud.tscn" id="3_hud"]
+[ext_resource type="Script" uid="uid://70t8jbrblcmh" path="res://scripts/level/components/plateform_visual.gd" id="3_yjjx0"]
+[ext_resource type="PackedScene" uid="uid://cjffm3nbdsdcs" path="res://scenes/prefabs/exit/exit.tscn" id="4_3acmf"]
 
 [sub_resource type="RectangleShape2D" id="Rect_floor"]
-size = Vector2(2000, 40)
+size = Vector2(1056, 40)
 
 [sub_resource type="RectangleShape2D" id="Rect_plat"]
 size = Vector2(200, 28)
 
 [sub_resource type="RectangleShape2D" id="Rect_trigger"]
-size = Vector2(200, 8)
+size = Vector2(134, 8)
 
-[sub_resource type="RectangleShape2D" id="Rect_death"]
-size = Vector2(2000, 40)
-
-[sub_resource type="RectangleShape2D" id="Rect_exit"]
-size = Vector2(40, 64)
-
-[node name="Level02" type="Node2D"]
+[node name="Level02" type="Node2D" unique_id=1462313179]
 script = ExtResource("1_base")
 level_id = 2
 next_level_scene = "res://scenes/levels/level_03.tscn"
+title = "TRUST ISSUES"
 
-[node name="SpawnPoint" type="Marker2D" parent="."]
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=2111594306]
 position = Vector2(100, 500)
 
-[node name="HUD" parent="." instance=ExtResource("3_hud")]
+[node name="HUD" parent="." unique_id=614303845 instance=ExtResource("3_hud")]
 
-[node name="Exit" type="Area2D" parent="."]
-position = Vector2(1160, 500)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
-shape = SubResource("Rect_exit")
-
-[node name="ExitVisual" type="ColorRect" parent="Exit"]
-offset_left = -20.0
-offset_top = -64.0
-offset_right = 20.0
-offset_bottom = 0.0
-color = Color(0.1, 0.9, 0.3, 1)
-
-[node name="DeathZone" type="Area2D" parent="."]
-position = Vector2(640, 720)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
-shape = SubResource("Rect_death")
-
-[node name="Ground" type="StaticBody2D" parent="."]
+[node name="Ground" type="StaticBody2D" parent="." unique_id=585052823]
 position = Vector2(200, 580)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1691487386]
+position = Vector2(-472, 0)
 shape = SubResource("Rect_floor")
 
-[node name="Visual" type="ColorRect" parent="Ground"]
+[node name="Visual" type="ColorRect" parent="Ground" unique_id=326633783]
 offset_left = -1000.0
 offset_top = -20.0
-offset_right = 1000.0
+offset_right = 58.0
 offset_bottom = 20.0
 color = Color(0.25, 0.25, 0.28, 1)
+script = ExtResource("3_yjjx0")
+metadata/_custom_type_script = "uid://70t8jbrblcmh"
 
-[node name="Platform1" type="StaticBody2D" parent="."]
+[node name="Platform1" type="StaticBody2D" parent="." unique_id=1194328235]
 position = Vector2(400, 480)
 script = ExtResource("2_dp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1" unique_id=1763983929]
 shape = SubResource("Rect_plat")
 
-[node name="Visual" type="ColorRect" parent="Platform1"]
+[node name="Visual" type="ColorRect" parent="Platform1" unique_id=2118861411]
 offset_left = -100.0
 offset_top = -14.0
 offset_right = 100.0
 offset_bottom = 14.0
 color = Color(0.7, 0.3, 0.3, 1)
 
-[node name="TriggerArea" type="Area2D" parent="Platform1"]
+[node name="TriggerArea" type="Area2D" parent="Platform1" unique_id=1013882601]
 position = Vector2(0, -14)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1/TriggerArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1/TriggerArea" unique_id=70576667]
+position = Vector2(33, 0)
 shape = SubResource("Rect_trigger")
 
-[node name="Platform2" type="StaticBody2D" parent="."]
+[node name="Platform2" type="StaticBody2D" parent="." unique_id=801368953]
 position = Vector2(700, 400)
 script = ExtResource("2_dp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2" unique_id=1424849436]
 shape = SubResource("Rect_plat")
 
-[node name="Visual" type="ColorRect" parent="Platform2"]
+[node name="Visual" type="ColorRect" parent="Platform2" unique_id=938710525]
 offset_left = -100.0
 offset_top = -14.0
 offset_right = 100.0
 offset_bottom = 14.0
 color = Color(0.7, 0.3, 0.3, 1)
 
-[node name="TriggerArea" type="Area2D" parent="Platform2"]
+[node name="TriggerArea" type="Area2D" parent="Platform2" unique_id=1866640120]
 position = Vector2(0, -14)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2/TriggerArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2/TriggerArea" unique_id=16886513]
 shape = SubResource("Rect_trigger")
 
-[node name="Platform3" type="StaticBody2D" parent="."]
+[node name="Platform3" type="StaticBody2D" parent="." unique_id=1235243556]
 position = Vector2(1000, 480)
 script = ExtResource("2_dp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3" unique_id=56144400]
 shape = SubResource("Rect_plat")
 
-[node name="Visual" type="ColorRect" parent="Platform3"]
+[node name="Visual" type="ColorRect" parent="Platform3" unique_id=1456530047]
 offset_left = -100.0
 offset_top = -14.0
 offset_right = 100.0
 offset_bottom = 14.0
 color = Color(0.7, 0.3, 0.3, 1)
 
-[node name="TriggerArea" type="Area2D" parent="Platform3"]
+[node name="TriggerArea" type="Area2D" parent="Platform3" unique_id=745376571]
 position = Vector2(0, -14)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3/TriggerArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3/TriggerArea" unique_id=409906455]
 shape = SubResource("Rect_trigger")
 
-[node name="LevelTitle" type="Label" parent="."]
-position = Vector2(40, 40)
-text = "TRUST ISSUES"
-theme_override_font_sizes/font_size = 24
-theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 0.4)
+[node name="Exit" parent="." unique_id=2023957119 instance=ExtResource("4_3acmf")]
+position = Vector2(1174, 527)

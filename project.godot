@@ -19,7 +19,6 @@ config/icon="res://icon.svg"
 
 GameState="*res://scripts/game_state.gd"
 SFX="*res://scripts/audio/sfx_manager.gd"
-MCPRuntimeProbe="*res://addons/godot_mcp/runtime/mcp_runtime_probe.gd"
 
 [display]
 
@@ -31,6 +30,10 @@ window/stretch/aspect="expand"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_mcp/plugin.cfg")
+
+[global_group]
+
+player=""
 
 [gui]
 

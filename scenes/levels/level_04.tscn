@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://b1level04"]
 
-[ext_resource type="Script" path="res://scripts/level/level_base.gd" id="1_base"]
-[ext_resource type="Script" path="res://scripts/level/components/collapsing_floor.gd" id="2_cf"]
-[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="3_hud"]
+[ext_resource type="Script" uid="uid://b5448x1onumxn" path="res://scripts/level/level_base.gd" id="1_base"]
+[ext_resource type="Script" uid="uid://6lwy63yvjx1j" path="res://scripts/level/components/collapsing_floor.gd" id="2_cf"]
+[ext_resource type="PackedScene" uid="uid://b1hud" path="res://scenes/hud.tscn" id="3_hud"]
+[ext_resource type="PackedScene" uid="uid://cjffm3nbdsdcs" path="res://scenes/prefabs/exit/exit.tscn" id="4_j6e47"]
 
 [sub_resource type="RectangleShape2D" id="Rect_border_l"]
 size = Vector2(120, 40)
@@ -16,229 +17,204 @@ size = Vector2(80, 28)
 [sub_resource type="RectangleShape2D" id="Rect_trigger"]
 size = Vector2(80, 8)
 
-[sub_resource type="RectangleShape2D" id="Rect_exit"]
-size = Vector2(40, 64)
-
-[sub_resource type="RectangleShape2D" id="Rect_death"]
-size = Vector2(2000, 40)
-
-[node name="Level04" type="Node2D"]
+[node name="Level04" type="Node2D" unique_id=533460408]
 script = ExtResource("1_base")
 level_id = 4
 next_level_scene = "res://scenes/levels/level_05.tscn"
+title = "False Floor"
 
-[node name="SpawnPoint" type="Marker2D" parent="."]
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=809977123]
 position = Vector2(80, 520)
 
-[node name="HUD" parent="." instance=ExtResource("3_hud")]
+[node name="HUD" parent="." unique_id=864375466 instance=ExtResource("3_hud")]
 
-[node name="Exit" type="Area2D" parent="."]
-position = Vector2(1200, 520)
+[node name="Exit" parent="." unique_id=2023957119 instance=ExtResource("4_j6e47")]
+position = Vector2(1224, 512)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
-shape = SubResource("Rect_exit")
-
-[node name="ExitVisual" type="ColorRect" parent="Exit"]
-offset_left = -20.0
-offset_top = -64.0
-offset_right = 20.0
-offset_bottom = 0.0
-color = Color(0.1, 0.9, 0.3, 1)
-
-[node name="DeathZone" type="Area2D" parent="."]
-position = Vector2(640, 740)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
-shape = SubResource("Rect_death")
-
-[node name="BorderLeft" type="StaticBody2D" parent="."]
+[node name="BorderLeft" type="StaticBody2D" parent="." unique_id=949822660]
 position = Vector2(60, 564)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderLeft"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderLeft" unique_id=2054865255]
 shape = SubResource("Rect_border_l")
 
-[node name="Visual" type="ColorRect" parent="BorderLeft"]
+[node name="Visual" type="ColorRect" parent="BorderLeft" unique_id=146278553]
 offset_left = -60.0
 offset_top = -20.0
 offset_right = 60.0
 offset_bottom = 20.0
 color = Color(0.25, 0.25, 0.28, 1)
 
-[node name="BorderRight" type="StaticBody2D" parent="."]
+[node name="BorderRight" type="StaticBody2D" parent="." unique_id=1162631906]
 position = Vector2(1220, 564)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderRight"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderRight" unique_id=29733065]
 shape = SubResource("Rect_border_r")
 
-[node name="Visual" type="ColorRect" parent="BorderRight"]
+[node name="Visual" type="ColorRect" parent="BorderRight" unique_id=413271807]
 offset_left = -60.0
 offset_top = -20.0
 offset_right = 60.0
 offset_bottom = 20.0
 color = Color(0.25, 0.25, 0.28, 1)
 
-[node name="Tile1" type="StaticBody2D" parent="."]
+[node name="Tile1" type="StaticBody2D" parent="." unique_id=691219062]
 position = Vector2(200, 564)
 script = ExtResource("2_cf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile1" unique_id=498969529]
 shape = SubResource("Rect_tile")
 
-[node name="Visual" type="ColorRect" parent="Tile1"]
+[node name="Visual" type="ColorRect" parent="Tile1" unique_id=2082839432]
 offset_left = -40.0
 offset_top = -14.0
 offset_right = 40.0
 offset_bottom = 14.0
 color = Color(0.4, 0.38, 0.42, 1)
 
-[node name="TriggerArea" type="Area2D" parent="Tile1"]
+[node name="TriggerArea" type="Area2D" parent="Tile1" unique_id=642203990]
 position = Vector2(0, -14)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile1/TriggerArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile1/TriggerArea" unique_id=1549382600]
 shape = SubResource("Rect_trigger")
 
-[node name="Tile2" type="StaticBody2D" parent="."]
+[node name="Tile2" type="StaticBody2D" parent="." unique_id=647005100]
 position = Vector2(320, 564)
 script = ExtResource("2_cf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile2" unique_id=981814868]
 shape = SubResource("Rect_tile")
 
-[node name="Visual" type="ColorRect" parent="Tile2"]
+[node name="Visual" type="ColorRect" parent="Tile2" unique_id=1901776310]
 offset_left = -40.0
 offset_top = -14.0
 offset_right = 40.0
 offset_bottom = 14.0
 color = Color(0.4, 0.38, 0.42, 1)
 
-[node name="TriggerArea" type="Area2D" parent="Tile2"]
+[node name="TriggerArea" type="Area2D" parent="Tile2" unique_id=716708184]
 position = Vector2(0, -14)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile2/TriggerArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile2/TriggerArea" unique_id=1050617628]
 shape = SubResource("Rect_trigger")
 
-[node name="Tile3" type="StaticBody2D" parent="."]
+[node name="Tile3" type="StaticBody2D" parent="." unique_id=78864697]
 position = Vector2(440, 564)
 script = ExtResource("2_cf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile3" unique_id=249579142]
 shape = SubResource("Rect_tile")
+disabled = true
 
-[node name="Visual" type="ColorRect" parent="Tile3"]
+[node name="Visual" type="ColorRect" parent="Tile3" unique_id=1524409074]
 offset_left = -40.0
 offset_top = -14.0
 offset_right = 40.0
 offset_bottom = 14.0
 color = Color(0.4, 0.38, 0.42, 1)
 
-[node name="TriggerArea" type="Area2D" parent="Tile3"]
+[node name="TriggerArea" type="Area2D" parent="Tile3" unique_id=1208929866]
 position = Vector2(0, -14)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile3/TriggerArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile3/TriggerArea" unique_id=1497879163]
 shape = SubResource("Rect_trigger")
 
-[node name="Tile4" type="StaticBody2D" parent="."]
+[node name="Tile4" type="StaticBody2D" parent="." unique_id=1718943956]
 position = Vector2(560, 564)
 script = ExtResource("2_cf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile4" unique_id=927632333]
 shape = SubResource("Rect_tile")
 
-[node name="Visual" type="ColorRect" parent="Tile4"]
+[node name="Visual" type="ColorRect" parent="Tile4" unique_id=484272509]
 offset_left = -40.0
 offset_top = -14.0
 offset_right = 40.0
 offset_bottom = 14.0
 color = Color(0.4, 0.38, 0.42, 1)
 
-[node name="TriggerArea" type="Area2D" parent="Tile4"]
+[node name="TriggerArea" type="Area2D" parent="Tile4" unique_id=1663034895]
 position = Vector2(0, -14)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile4/TriggerArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile4/TriggerArea" unique_id=2129530995]
 shape = SubResource("Rect_trigger")
 
-[node name="Tile5" type="StaticBody2D" parent="."]
+[node name="Tile5" type="StaticBody2D" parent="." unique_id=622002528]
 position = Vector2(680, 564)
 script = ExtResource("2_cf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile5"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile5" unique_id=1053747993]
 shape = SubResource("Rect_tile")
 
-[node name="Visual" type="ColorRect" parent="Tile5"]
+[node name="Visual" type="ColorRect" parent="Tile5" unique_id=124281618]
 offset_left = -40.0
 offset_top = -14.0
 offset_right = 40.0
 offset_bottom = 14.0
 color = Color(0.4, 0.38, 0.42, 1)
 
-[node name="TriggerArea" type="Area2D" parent="Tile5"]
+[node name="TriggerArea" type="Area2D" parent="Tile5" unique_id=1722833840]
 position = Vector2(0, -14)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile5/TriggerArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile5/TriggerArea" unique_id=428331194]
 shape = SubResource("Rect_trigger")
 
-[node name="Tile6" type="StaticBody2D" parent="."]
+[node name="Tile6" type="StaticBody2D" parent="." unique_id=499213365]
 position = Vector2(800, 564)
 script = ExtResource("2_cf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile6"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile6" unique_id=23826349]
 shape = SubResource("Rect_tile")
 
-[node name="Visual" type="ColorRect" parent="Tile6"]
+[node name="Visual" type="ColorRect" parent="Tile6" unique_id=808715659]
 offset_left = -40.0
 offset_top = -14.0
 offset_right = 40.0
 offset_bottom = 14.0
 color = Color(0.4, 0.38, 0.42, 1)
 
-[node name="TriggerArea" type="Area2D" parent="Tile6"]
+[node name="TriggerArea" type="Area2D" parent="Tile6" unique_id=489069278]
 position = Vector2(0, -14)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile6/TriggerArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile6/TriggerArea" unique_id=532081174]
 shape = SubResource("Rect_trigger")
 
-[node name="Tile7" type="StaticBody2D" parent="."]
+[node name="Tile7" type="StaticBody2D" parent="." unique_id=63816141]
 position = Vector2(920, 564)
 script = ExtResource("2_cf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile7"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile7" unique_id=524837102]
 shape = SubResource("Rect_tile")
+disabled = true
 
-[node name="Visual" type="ColorRect" parent="Tile7"]
+[node name="Visual" type="ColorRect" parent="Tile7" unique_id=1021941351]
 offset_left = -40.0
 offset_top = -14.0
 offset_right = 40.0
 offset_bottom = 14.0
 color = Color(0.4, 0.38, 0.42, 1)
 
-[node name="TriggerArea" type="Area2D" parent="Tile7"]
+[node name="TriggerArea" type="Area2D" parent="Tile7" unique_id=122667554]
 position = Vector2(0, -14)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile7/TriggerArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile7/TriggerArea" unique_id=1255361458]
 shape = SubResource("Rect_trigger")
 
-[node name="Tile8" type="StaticBody2D" parent="."]
+[node name="Tile8" type="StaticBody2D" parent="." unique_id=1273718130]
 position = Vector2(1040, 564)
 script = ExtResource("2_cf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile8"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile8" unique_id=598612661]
 shape = SubResource("Rect_tile")
 
-[node name="Visual" type="ColorRect" parent="Tile8"]
+[node name="Visual" type="ColorRect" parent="Tile8" unique_id=963994730]
 offset_left = -40.0
 offset_top = -14.0
 offset_right = 40.0
 offset_bottom = 14.0
 color = Color(0.4, 0.38, 0.42, 1)
 
-[node name="TriggerArea" type="Area2D" parent="Tile8"]
+[node name="TriggerArea" type="Area2D" parent="Tile8" unique_id=1745232581]
 position = Vector2(0, -14)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile8/TriggerArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile8/TriggerArea" unique_id=585250144]
 shape = SubResource("Rect_trigger")
-
-[node name="LevelTitle" type="Label" parent="."]
-position = Vector2(40, 40)
-text = "FALSE FLOOR"
-theme_override_font_sizes/font_size = 24
-theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 0.4)

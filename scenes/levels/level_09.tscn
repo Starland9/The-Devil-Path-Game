@@ -1,20 +1,18 @@
 [gd_scene format=3 uid="uid://b1level1a"]
 
-[ext_resource type="Script" path="res://scripts/level/level_base.gd" id="1_base"]
-[ext_resource type="Script" path="res://scripts/level/components/fake_collectible.gd" id="2_fc"]
-[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="3_hud"]
+[ext_resource type="Script" uid="uid://b5448x1onumxn" path="res://scripts/level/level_base.gd" id="1_base"]
+[ext_resource type="Script" uid="uid://bxqy2vd0c56v7" path="res://scripts/level/components/fake_collectible.gd" id="2_fc"]
+[ext_resource type="PackedScene" uid="uid://cjffm3nbdsdcs" path="res://scenes/prefabs/exit/exit.tscn" id="3_33ykn"]
+[ext_resource type="PackedScene" uid="uid://b1hud" path="res://scenes/hud.tscn" id="3_hud"]
+
+[sub_resource type="RectangleShape2D" id="Rect_death"]
+size = Vector2(2000, 40)
 
 [sub_resource type="RectangleShape2D" id="Rect_floor"]
 size = Vector2(1280, 40)
 
 [sub_resource type="RectangleShape2D" id="Rect_coin"]
 size = Vector2(32, 32)
-
-[sub_resource type="RectangleShape2D" id="Rect_exit"]
-size = Vector2(40, 64)
-
-[sub_resource type="RectangleShape2D" id="Rect_death"]
-size = Vector2(2000, 40)
 
 [sub_resource type="RectangleShape2D" id="Rect_spike_l"]
 size = Vector2(280, 24)
@@ -25,105 +23,98 @@ size = Vector2(280, 24)
 [sub_resource type="RectangleShape2D" id="Rect_plat"]
 size = Vector2(160, 24)
 
-[node name="Level09" type="Node2D"]
+[node name="Level09" type="Node2D" unique_id=1284446506]
 script = ExtResource("1_base")
 level_id = 9
 next_level_scene = "res://scenes/levels/level_10.tscn"
 
-[node name="SpawnPoint" type="Marker2D" parent="."]
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1711180455]
 position = Vector2(120, 520)
 
-[node name="HUD" parent="." instance=ExtResource("3_hud")]
+[node name="HUD" parent="." unique_id=2059488076 instance=ExtResource("3_hud")]
 
-[node name="Exit" type="Area2D" parent="."]
-position = Vector2(1160, 520)
+[node name="Exit" parent="." unique_id=2023957119 instance=ExtResource("3_33ykn")]
+position = Vector2(1233, 527)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
-shape = SubResource("Rect_exit")
-
-[node name="ExitVisual" type="ColorRect" parent="Exit"]
-offset_left = -20.0
-offset_top = -64.0
-offset_right = 20.0
-offset_bottom = 0.0
-color = Color(0.1, 0.9, 0.3, 1)
-
-[node name="DeathZone" type="Area2D" parent="."]
+[node name="DeathZone" type="Area2D" parent="." unique_id=1299404234]
 position = Vector2(640, 740)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone" unique_id=1563844337]
 shape = SubResource("Rect_death")
 
-[node name="Floor" type="StaticBody2D" parent="."]
+[node name="Floor" type="StaticBody2D" parent="." unique_id=720445345]
 position = Vector2(640, 580)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=918379810]
 shape = SubResource("Rect_floor")
 
-[node name="Visual" type="ColorRect" parent="Floor"]
+[node name="Visual" type="ColorRect" parent="Floor" unique_id=387124260]
 offset_left = -640.0
 offset_top = -20.0
 offset_right = 640.0
 offset_bottom = 20.0
 color = Color(0.25, 0.25, 0.28, 1)
 
-[node name="FakeCollectible" type="Area2D" parent="."]
+[node name="FakeCollectible" type="Area2D" parent="." unique_id=1275730985]
 position = Vector2(640, 450)
 script = ExtResource("2_fc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FakeCollectible"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FakeCollectible" unique_id=698135074]
 shape = SubResource("Rect_coin")
 
-[node name="CoinVisual" type="ColorRect" parent="FakeCollectible"]
+[node name="CoinVisual" type="ColorRect" parent="FakeCollectible" unique_id=2002981806]
 offset_left = -16.0
 offset_top = -16.0
 offset_right = 16.0
 offset_bottom = 16.0
-color = Color(1.0, 0.85, 0.0, 1)
+color = Color(1, 0.85, 0, 1)
 
-[node name="Spikes" type="Node2D" parent="FakeCollectible"]
+[node name="Spikes" type="Node2D" parent="FakeCollectible" unique_id=692054923]
 
-[node name="SpikeAreaLeft" type="Area2D" parent="FakeCollectible/Spikes"]
+[node name="SpikeAreaLeft" type="Area2D" parent="FakeCollectible/Spikes" unique_id=2063653951]
 position = Vector2(-340, 130)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FakeCollectible/Spikes/SpikeAreaLeft"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FakeCollectible/Spikes/SpikeAreaLeft" unique_id=1506859705]
 shape = SubResource("Rect_spike_l")
 
-[node name="Visual" type="ColorRect" parent="FakeCollectible/Spikes/SpikeAreaLeft"]
+[node name="Visual" type="ColorRect" parent="FakeCollectible/Spikes/SpikeAreaLeft" unique_id=1804635175]
 offset_left = -140.0
 offset_top = -12.0
 offset_right = 140.0
 offset_bottom = 12.0
 color = Color(0.9, 0.1, 0.1, 1)
 
-[node name="SpikeAreaRight" type="Area2D" parent="FakeCollectible/Spikes"]
+[node name="SpikeAreaRight" type="Area2D" parent="FakeCollectible/Spikes" unique_id=582241463]
 position = Vector2(340, 130)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FakeCollectible/Spikes/SpikeAreaRight"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FakeCollectible/Spikes/SpikeAreaRight" unique_id=1937900139]
 shape = SubResource("Rect_spike_r")
 
-[node name="Visual" type="ColorRect" parent="FakeCollectible/Spikes/SpikeAreaRight"]
+[node name="Visual" type="ColorRect" parent="FakeCollectible/Spikes/SpikeAreaRight" unique_id=1131001886]
 offset_left = -140.0
 offset_top = -12.0
 offset_right = 140.0
 offset_bottom = 12.0
 color = Color(0.9, 0.1, 0.1, 1)
 
-[node name="Platform" type="StaticBody2D" parent="."]
+[node name="Platform" type="StaticBody2D" parent="." unique_id=856652641]
 position = Vector2(640, 500)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=1934038759]
 shape = SubResource("Rect_plat")
 
-[node name="Visual" type="ColorRect" parent="Platform"]
+[node name="Visual" type="ColorRect" parent="Platform" unique_id=1231803917]
 offset_left = -80.0
 offset_top = -12.0
 offset_right = 80.0
 offset_bottom = 12.0
 color = Color(0.35, 0.35, 0.4, 1)
 
-[node name="LevelTitle" type="Label" parent="."]
-position = Vector2(40, 40)
-text = "FAKE COIN"
-theme_override_font_sizes/font_size = 24
+[node name="LevelTitle" type="Label" parent="." unique_id=1787967158]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 40.0
+offset_bottom = 40.0
 theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 0.4)
+theme_override_font_sizes/font_size = 24
+text = "FAKE COIN"

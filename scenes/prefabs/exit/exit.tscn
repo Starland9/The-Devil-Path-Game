@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cjffm3nbdsdcs"]
+
+[sub_resource type="RectangleShape2D" id="Rect_exit"]
+size = Vector2(40, 64)
+
+[node name="Exit" type="Area2D" unique_id=2023957119]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=850595598]
+shape = SubResource("Rect_exit")
+
+[node name="ExitVisual" type="ColorRect" parent="." unique_id=1954129207]
+offset_left = -20.0
+offset_top = -32.0
+offset_right = 20.0
+offset_bottom = 32.0
+color = Color(0.1, 0.9, 0.3, 1)
